@@ -1,10 +1,5 @@
 <?php
 
-$dbServer = "localhost";
-$dbName = "ooplr";
-$dbUserName = "root";
-$dbPassowrd = "";
-
 $conn = @new mysqli("localhost", "root", "", "finalyearproject");
 
 if ($conn->connect_error) {
