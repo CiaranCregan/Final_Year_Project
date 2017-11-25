@@ -1,0 +1,39 @@
+
+.navbar{
+        margin-bottom: 0;
+    }
+
+.jumbotron{
+	padding-top: 20px;
+    margin-bottom: 0;
+    background-color: orange;
+    }
+
+/* login form css */
+.home{
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	margin: 10px 0 15px 0;
+	border: 3px solid lightblue;
+	border-radius: 10px;
+	background-color: #F8F8FF;
+}
+.item{
+	padding: 20px;
+}
+#input{
+	padding-bottom: 10px;
+}
+#input-button{
+	padding: 10px;
+}
+
+.img-thumb{
+	width: 100%;
+}
+
+hr{
+	color: red;
+	width: 50%;
+}

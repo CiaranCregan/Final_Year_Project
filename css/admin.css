@@ -1,0 +1,149 @@
+/* Admin css*/
+body{
+	background: #f4f4f4;
+}
+
+/* Global CSS */
+#m-color{
+	background-color: #31c1d3;
+  border-color: #17d9d4;
+  color: white;
+}
+
+.text-aign{
+  text-align: center;
+}
+
+/* Navbar CSS */
+.navbar{
+	min-height: 33px !important;
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+.navbar-nav > li > a, .navbar-brand{
+	padding-top: 6px !important;
+	padding-bottom: 0;
+	height: 33px;
+}
+
+.navbar-default {
+  background-color: #31c1d3;
+  border-color: #17d9d4;
+}
+
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #f4f4f4;
+}
+
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #f4f4f4;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #f4f4f4;
+  background-color: #17d9d4;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #f4f4f4;
+  background-color: #17d9d4;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #17d9d4;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #17d9d4;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ffffff;
+}
+
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-link:hover {
+  color: #f4f4f4;
+}
+
+/* Head CSS */
+#head{
+	background-color: black;
+	color: #fff;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+  padding-left: 15px;
+  /*padding-right: 15px;*/
+}
+
+#head #head-create{
+	padding-top: 22px;
+}
+
+/* Breadcrumb CSS */
+.breadcrumb{
+	background-color: #cccccc;
+}
+
+.breadcrumb a{
+	color: #333333;
+}
+
+/* Main Content CSS */
+#size-h2{
+	font-size: 25px;
+}
+
+#main-users-margin{
+  margin-top: 20px;
+}
+
+#products-margin{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f4f4f4;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f4f4f4;
+    background-color: #17d9d4;
+  }
+}
