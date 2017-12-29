@@ -17,6 +17,6 @@ if (isset($_SESSION['userid'])) {
 	$result = $conn->query($user_sql);
 	$user = $result->fetch_assoc();
 	$name = $user['name'];
+	$role = $user['roles'];
 }
-
 //flashes go in here - add jquery to flash so it auto removes

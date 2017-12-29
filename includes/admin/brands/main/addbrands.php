@@ -37,8 +37,13 @@
 						} else {
 							// no errors, insert content to db
 							$brandInsert = "INSERT INTO brands (brand_name) VALUES ('$brand_name')";
+								// change sql to update when get has been set
+								if (isset($_GET['edit'])) {
+									$brandInsert = "UPDATE brands SET brand_name = '$brand_name' WHERE id = '$edit_brand_id'";
+								}
+
 							$success = $conn->query($brandInsert);
-							header("Location: brands.php");
+							//header("Location: brands.php");
 						}
 					}
 				}

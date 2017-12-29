@@ -1,3 +1,7 @@
+<?php
+	$user_query = "SELECT * FROM users WHERE roles != 'user'";
+	$result = $conn->query($user_query);
+?>
 <section id="main">
 		<div class="container-fluid">
 			<div class="row">
@@ -60,13 +64,21 @@
 							    <th>Username</th>
 							    <th>Fullname</th> 
 							    <th>Date Joined</th>
-							    <th>Group ID</th>
+							    <th>User Role(s)</th>
 							  </thead>
 							  <tbody>
-							  
+							  	<?php
+							  	while ($user = $result->fetch_assoc()) : ?>
+							  	<tr>
+							  		<td><?=$user['username'];?></td>
+							  		<td><?=$user['name'];?></td>
+							  		<td><?=$user['joindate'];?></td>
+							  		<td><?=$user['roles'];?></td>
+							  	</tr>
+							  	<?php endwhile; ?>
 							  </tbody>
 							</table>
-							<a href="products.php" id="main-users-margin" class="btn btn-default pull-right">Visit the Users Page</a>
+							<a href="users.php" id="main-users-margin" class="btn btn-default pull-right">Visit the Users Page</a>
 						</div>
 					</div>
 			<!-- End of Website Users (main) -->
