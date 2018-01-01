@@ -37,3 +37,7 @@ hr{
 	color: red;
 	width: 50%;
 }
+
+.needed{
+	border-color: red !important;
+}

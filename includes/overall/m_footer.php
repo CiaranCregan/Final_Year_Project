@@ -17,10 +17,11 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+      // MODAL FUNCTION FOR EACH FEATURED PRODUCT
     	function featuredetails(id){ // id = id of product
     		// alert("Product Number: " + id)
     		var featuredData = {"id" : id};
-    		jQuery.ajax({
+    		$.ajax({
     			url 	: 'includes/featureddetails.php',
     			method 	: "post",
     			data 	: featuredData,
@@ -33,36 +34,63 @@
     			}
     		});
     	}
+
+      // ADDING TO CART FUCNTION
+      function save_to_cart(){
+        $('#errors').html("");
+        var quantity = $('#quantity').val();
+        var error = '';
+        var data = $('#add_to_cart').serialize();
+        //alert(data);
+
+        if (quantity == '') {
+          error += '<p class="text-danger text-center">You must select a quantity.</p>';
+          $('#errors').html(error);
+          return;
+        } else {
+          //alert("Everything is good to go Ciaran");
+          $.ajax({
+            url: 'includes/added_to_cart.php',
+            method: 'post',
+            data: data,
+            success: function(){
+              location.reload();
+              console.log(data);
+            },
+            error: function(){
+              alert("Oh no, it looks like something has when wrong...")
+            }
+          });
+        }
+      }
+
+      // CAROUSEL FUNCTION, HOME PAGE
+      var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
     </script> 
-
-    <script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-
-</script>
 </body>
 </html>

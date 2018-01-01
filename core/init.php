@@ -7,9 +7,15 @@ if ($conn->connect_error) {
 	die();
 }
 session_start();
-include 'functions/user.php';
 include 'functions/general.php';
-include 'functions/sanitize.php';
+
+/*$shopping_cart_id = '';
+if (isset(COOKIE['shopping_cart_cookie'])) {
+	$shopping_cart_id = COOKIE['shopping_cart_cookie'];
+}
+
+Modify at a later stage in the shopping cart development
+*/ 
 
 if (isset($_SESSION['userid'])) {
 	$user_id = $_SESSION['userid'];
@@ -18,5 +24,10 @@ if (isset($_SESSION['userid'])) {
 	$user = $result->fetch_assoc();
 	$name = $user['name'];
 	$role = $user['roles'];
+}
+
+if (isset($_SESSION['success-flash'])) {
+	echo '<div class="bg-success"><p class="text-success text-center">'.$_SESSION['success-flash'].'</p></div>';
+	unset($_SESSION['success-flash']);
 }
 //flashes go in here - add jquery to flash so it auto removes

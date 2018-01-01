@@ -31,6 +31,7 @@
 		<div class="modal-body">
 			<div class="container-fluid">
 				<div class="row">
+					<span id="errors" class="bg-danger"></span>
 					<div class="col-md-6">
 						<div class="center-block">
 							<img src="<?= $products_info['image']; ?>" align="<?= $products_info['title']; ?>" style="width:700px;" class="img-responsive">
@@ -42,10 +43,12 @@
 						<hr>
 						<p>Bed Brand: <?= $brand_id_info['brand_name']; ?></p>
 						<p>Our Price: £<?= $products_info['our_price']; ?></p>
-						<form>
+						<form action="added_to_cart.php" method="post" id="add_to_cart">
+							<input type="hidden" name="id" value="<?= $products_info['id'] ;?>">
 						  <div class="form-group">
-						    <label for="exampleFormControlSelect1">Example select</label>
-						    <select class="form-control" id="exampleFormControlSelect1">
+						    <label for="quantity">Select Quantity</label>
+						    <select class="form-control" id="quantity" name="quantity">
+						      <option></option>
 						      <option>1</option>
 						      <option>2</option>
 						      <option>3</option>
@@ -60,7 +63,7 @@
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-default" onclick="modalClose()">Close</button>
-			<button  type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
+			<button  onclick="save_to_cart();return false;" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
 		</div>
 	</div>
 	</div>
