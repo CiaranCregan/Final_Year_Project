@@ -15,5 +15,5 @@ $query = "SELECT * FROM products WHERE id = '$id'";
 $result = $conn->query($query);
 $product = $result->fetch_assoc();
 
-$_SESSION['success-flash'] = $quantity . ' ' . $product['title'] . ' has been added to your basket';
+$_SESSION['success-message-flash'] = $quantity . ' ' . $product['title'] . ' has been added to your basket';
 ?>

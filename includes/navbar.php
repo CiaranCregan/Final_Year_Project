@@ -27,20 +27,18 @@ require_once 'core/init.php';
               echo '<li><a href="login.php">Login</a></li>
                     <li><a href="signup.php">Register</a></li>';
             } else {
-              echo '<ul class="nav navbar-nav navbar-right">
+              echo '
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<b> ';
               echo $name;
               echo '</b> <span class="caret"> </span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Profile</a></li>';
+                  <ul class="dropdown-menu">';
                     if (employee_access('employee')) {
                       echo '<li><a href="dashboard.php">Admin Area</a></li>';
                     }
                     echo '<li><a href="logout.php">Logout</a></li>
                   </ul>
-                </li>
-              </ul>';
+                </li>';
             }
           ?>
         </ul>

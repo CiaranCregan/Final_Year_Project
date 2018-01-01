@@ -91,6 +91,10 @@
           slides[slideIndex-1].style.display = "block";  
           dots[slideIndex-1].className += " active";
         }
+
+        setTimeout(function(){
+          $('#item-added-successfully').fadeOut("slow").empty();
+        }, 5000);
     </script> 
 </body>
 </html>

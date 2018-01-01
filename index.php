@@ -47,6 +47,20 @@
     </div>
 
     <div class="container-fluid">
+      <?php
+          if (isset($_SESSION['success-message-flash'])) {
+            echo '
+            <div class="col-md-12" id="item-added-successfully">
+            <div class="row">
+            <div class="alert alert-success alert-dismissible text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" ria-label="Close"><span aria-hidden= true>&times;</span></button>
+             <strong>Complete!</strong> '.$_SESSION['success-message-flash'].'
+             </div>
+             </div>
+             </div>';
+            unset($_SESSION['success-message-flash']);
+          }
+          ?>
       <div class="col-md-12">
         <div class="row">
           <h2 class="text-center">Best Sellers</h2>

@@ -25,9 +25,4 @@ if (isset($_SESSION['userid'])) {
 	$name = $user['name'];
 	$role = $user['roles'];
 }
-
-if (isset($_SESSION['success-flash'])) {
-	echo '<div class="bg-success"><p class="text-success text-center">'.$_SESSION['success-flash'].'</p></div>';
-	unset($_SESSION['success-flash']);
-}
 //flashes go in here - add jquery to flash so it auto removes

@@ -28,6 +28,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<b> <?= $name; ?></b> <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="index.php"><span class="glyphicon glyphicon-user"></span> View My Profile</a></li>
             <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Visit Site</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
           </ul>
