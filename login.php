@@ -75,4 +75,3 @@
 			</div>	
 		</div>
 	</section>
-	<?php include 'includes/overall/m_footer.php'; ?>

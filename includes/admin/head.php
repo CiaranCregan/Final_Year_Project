@@ -10,7 +10,6 @@
         <!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
         <link rel="stylesheet" type="text/css" href="css/admin.css">
         <link rel="stylesheet" type="text/css" href="css/sidebar.css">
-        <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

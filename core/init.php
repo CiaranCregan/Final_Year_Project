@@ -7,13 +7,14 @@ if ($conn->connect_error) {
 	die();
 }
 session_start();
+include 'const.php';
 include 'functions/general.php';
 
-/*$shopping_cart_id = '';
-if (isset(COOKIE['shopping_cart_cookie'])) {
-	$shopping_cart_id = COOKIE['shopping_cart_cookie'];
+$shopping_cart_id = '';
+if (isset($_COOKIE[SHOPPING_CART_COOKIE])) {
+	$shopping_cart_id = escape($_COOKIE[SHOPPING_CART_COOKIE]);
 }
-
+/*
 Modify at a later stage in the shopping cart development
 */ 
 

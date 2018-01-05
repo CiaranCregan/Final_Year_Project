@@ -55,7 +55,6 @@
             data: data,
             success: function(){
               location.reload();
-              console.log(data);
             },
             error: function(){
               alert("Oh no, it looks like something has when wrong...")

@@ -21,7 +21,7 @@ require_once 'core/init.php';
           <!--li><a href="#"></a></li-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
+          <li><a href="basket.php"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
           <?php
             if (!loggedin()) {
               echo '<li><a href="login.php">Login</a></li>

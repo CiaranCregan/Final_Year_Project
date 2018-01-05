@@ -3,6 +3,14 @@
         margin-bottom: 0;
     }
 
+.navbar-brand {
+	font-size: 40px;
+}
+
+.navbar-inverse .navbar-brand{
+	color: white;
+}
+
 .jumbotron{
 	padding-top: 20px;
     margin-bottom: 0;
@@ -40,4 +48,8 @@ hr{
 
 .needed{
 	border-color: red !important;
+}
+
+.list-price{
+	text-decoration: line-through;
 }
