@@ -6,8 +6,8 @@ $password_hashed = password_hash($password, PASSWORD_DEFAULT);
 
 $path = $_SERVER['PHP_SELF'];
 
-echo $path;
+echo $path . '<br>';
 
-echo $password_hashed;
+echo $password_hashed . '<br>';
 
 echo dirname($_SERVER['PHP_SELF']);

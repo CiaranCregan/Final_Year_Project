@@ -11,7 +11,7 @@ require_once 'core/init.php';
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">The Mattress Man</a>
+        <a class="navbar-brand" href="index.php">Mattress Man</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,7 +36,8 @@ require_once 'core/init.php';
                     if (employee_access('employee')) {
                       echo '<li><a href="dashboard.php">Admin Area</a></li>';
                     }
-                    echo '<li><a href="logout.php">Logout</a></li>
+                    echo '<li><a href="#">Profile</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                   </ul>
                 </li>';
             }

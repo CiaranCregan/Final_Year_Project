@@ -2,6 +2,8 @@
 		include 'includes/overall/m_header.php';
 		require_once 'core/init.php';
 
+		//$path = $_POST['path'];
+
 		if (postInputExists()) {
 			if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION['token']) {
 				$username = escape($_POST['username']);

@@ -63,18 +63,15 @@
         }
       }
 
-      // CAROUSEL FUNCTION, HOME PAGE
+            // CAROUSEL FUNCTION, HOME PAGE
       var slideIndex = 1;
         showSlides(slideIndex);
-
         function plusSlides(n) {
           showSlides(slideIndex += n);
         }
-
         function currentSlide(n) {
           showSlides(slideIndex = n);
         }
-
         function showSlides(n) {
           var i;
           var slides = document.getElementsByClassName("mySlides");
@@ -90,7 +87,6 @@
           slides[slideIndex-1].style.display = "block";  
           dots[slideIndex-1].className += " active";
         }
-
         setTimeout(function(){
           $('#item-added-successfully').fadeOut("slow").empty();
         }, 5000);

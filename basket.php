@@ -8,6 +8,8 @@
   $items = json_decode($cart_items['items'], true);
   $items_quantity = 0;
   $total = 0;
+
+  //$path = $_SERVER['PHP_SELF'];
 ?>
 <div class="col-md-12">
   <div class="row" style="background-color: #e6e6e6;">
@@ -38,7 +40,12 @@
                 <p class="text-success">Now: £<?= $product_info['our_price'];?>.00</p>
               </td>
               <td><h4>Size: <br>TBC</h4></td>
-              <td><h4>Quantity: <br><?= $an_item['quantity'];?></h4></td>
+              <td class="text-center" style="width:200px;">
+                <h4>Quantity:</h4><br>
+                <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-minus"></span></a>
+                <a href="#" class="btn btn-default btn-lg" disabled><?= $an_item['quantity'];?></a>
+                <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"></span></a>
+              </td>
               <td><h4>Price: <br>£<?= $product_info['our_price'];?>.00</h4></td>
               <td><h4>TBC</h4></td>
             </tr>
@@ -49,24 +56,25 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="container" style="margin-top: 40px;">
-    <div class="row">
       <div class="col-lg-9 col-md-9 col-sm-6">
-        <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</button>
+        <a href="cart.php" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</a>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-6">
-        <button type="button" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span> Secure Checkout</button>
+        <form method="post" action="cart.php">
+          <input type="hidden" name="quantity" value="<?= $items_quantity; ?>">
+          <input type="hidden" name="total" value="<?= $total; ?>">
+          <input class="btn btn-warning btn-lg" type="submit" name="submit" value="Secure Checkout">
         <h4>Item Quantity: <?= $items_quantity; ?></h4>
         <h4>Total: £<b><?= $total; ?>.00</b><br>
           <p>(Delivery Excluded)</p>
         </h4>
+        </form>
       </div>
     </div>
   </div>
-</div>
+</div> 
 
-
-
-    
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

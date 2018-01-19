@@ -107,7 +107,7 @@
 										</td>
 										<td><?=$archived['title'];?></td>
 										<td>£<?=$archived['price'];?></td>
-										<td></td>
+										<td><?=$archived['brand'];?></td>
 										<td class="<?= (($archived['featured'] == 1)?'success':'danger'); ?>">
 										 <?= (($archived['featured'] == 1)?'Featured Product':' Product has been deleted.'); ?>
 										</td>
