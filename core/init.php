@@ -9,6 +9,7 @@ if ($conn->connect_error) {
 session_start();
 include 'const.php';
 include 'functions/general.php';
+require 'vendor/autoload.php';
 
 $shopping_cart_id = '';
 if (isset($_COOKIE[SHOPPING_CART_COOKIE])) {
