@@ -31,7 +31,7 @@
               $product_info = $result->fetch_assoc();
             ?>
             <tr>
-              <td><img src="<?= $product_info['image'] ;?>" class="img-thumbnail" style="width:200px;"></td>
+              <td><img src="<?= $product_info['image'] ;?>"></td>
               <td>
                 <h4>
                   <?= $product_info['title'];?>
@@ -39,7 +39,7 @@
                 <p class="list-price text-danger">Was: £<?= $product_info['price'];?>.00</p>
                 <p class="text-success">Now: £<?= $product_info['our_price'];?>.00</p>
               </td>
-              <td><h4>Size: <br>TBC</h4></td>
+              <td><h4>Size: <br>Single</h4></td>
               <td class="text-center" style="width:200px;">
                 <h4>Quantity:</h4><br>
                 <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-minus"></span></a>
@@ -56,10 +56,10 @@
           </table>
         </div>
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-6">
-        <a href="cart.php" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</a>
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <a href="index.php" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</a>
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-6">
+      <div class="col-lg-3 col-md-3 col-sm-12">
         <form method="post" action="cart.php">
           <input type="hidden" name="quantity" value="<?= $items_quantity; ?>">
           <input type="hidden" name="total" value="<?= $total; ?>">

@@ -14,7 +14,7 @@
           <div class="numbertext">1 / 4</div>
           <img src="img/hero-1.jpg" style="width:100%">
           <div class="text">
-          <h1>Massive Summer Savings - Get up to 1/2 Price off all beds now</h1>
+          <h1>Massive Savings - Get up to 1/2 Price off all beds now</h1>
           </div>
         </div>
 

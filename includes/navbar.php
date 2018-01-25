@@ -36,7 +36,7 @@ require_once 'core/init.php';
                     if (employee_access('employee')) {
                       echo '<li><a href="dashboard.php">Admin Area</a></li>';
                     }
-                    echo '<li><a href="#">Profile</a></li>
+                    echo '<li><a href="profile.php">Profile</a></li>
                     <li><a href="logout.php">Logout</a></li>
                   </ul>
                 </li>';
