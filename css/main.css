@@ -127,6 +127,17 @@ body{
   background-color: #fefde5 !important;
 }
 /* END OF CART.PHP */
-.display{
-	display: inline-block !important;
+
+/* profile.php css */
+.panel-default > .panel-heading{
+	background: #6799a3;
+	border-color: #fff;
+}
+.panel-heading{
+	padding: 0;
+	border-right: 3px;
+	border: 1px solid;
+}
+.panel-heading h3{
+	color: #fff;
 }

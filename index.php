@@ -4,48 +4,94 @@
     ?>
     <div class="jumbotron">
       <div class="container text-center">
-        <h2 class="primary-color">Welcome to The Mattress Man Belfast</h2>
-        <p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p>
+          <h2 class="primary-color">Welcome to The Mattress Man Belfast</h2>
+          <!-- <a href="#" class="btn btn-default">View all Beds</a>
+          <a href="#" class="btn btn-default">View all Mattresses</a>
+          <a href="#" class="btn btn-default">View all Headboards</a> -->
       </div>
     </div>
-
-    <!-- <div class="slideshow-container">
-        <div class="mySlides">
-          <div class="numbertext">1 / 4</div>
-          <img src="img/hero-1.jpg" style="width:100%;">
-          <div class="text">
-          <h1>Massive Savings - Get up to 1/2 Price off all beds now</h1>
+    <section id="our-brands">
+      <div class="container">
+      <h1 class="text-center primary-color">Mattress Man Products</h1>
+      <h3 class="text-center">Our customers are the most important people and because of that we try and find the best sleeping experience.</h3>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="panel panel-default">
+            <div id="m-color" class="panel-heading">
+              <img src="img/bed2.jpg" style="width: 100%">
+            </div>
+            <div class="panel-body" style="background-color: #ffb100;color: #fff;">
+                <div class="text-center">
+                  <h2>Divan Beds</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+             </div>
           </div>
         </div>
-
-        <div class="mySlides">
-          <div class="numbertext">2 / 4</div>
-          <img src="img/hero-img.jpg" style="width:100%;">
-          <div class="text"><h1>The Mattress Man look</h1></div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="panel panel-default">
+            <div id="m-color" class="panel-heading">
+              <img src="img/bed3.jpg" style="width: 100%">
+            </div>
+            <div class="panel-body" style="background-color: #aee0c5;color: #fff;">
+                <div class="text-center">
+                  <h2>Wingback Beds</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+             </div>
+          </div>
         </div>
-
-        <div class="mySlides">
-          <div class="numbertext">3 / 4</div>
-          <img src="img/example.jpg" style="width:100%">
-          <div class="text">Caption Three</div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="panel panel-default">
+            <div id="m-color" class="panel-heading">
+              <img src="img/bed4.jpg" style="width: 100%">
+            </div>
+            <div class="panel-body" style="background-color: #ead5e1;color: #fff;">
+                <div class="text-center">
+                  <h2>Paris Beds</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+             </div>
+          </div>
         </div>
-
-        <div class="mySlides">
-          <div class="numbertext">4 / 4</div>
-          <img src="img/image1.jpg" style="width:100%">
-          <div class="text">Caption Four</div>
-        </div>
-
-        <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div> -->
-
+      </div>
+    </div>
+    </section>
+    
     <div class="container-fluid">
       <?php
           if (isset($_SESSION['success-message-flash'])) {

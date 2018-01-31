@@ -42,9 +42,9 @@
               <td><h4>Size: <br>Single</h4></td>
               <td class="text-center" style="width:200px;">
                 <h4>Quantity:</h4><br>
-                <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-minus"></span></a>
-                <a href="#" class="btn btn-default btn-lg" disabled><?= $an_item['quantity'];?></a>
-                <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="#" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                <a href="#" class="btn btn-default" disabled><?= $an_item['quantity'];?></a>
+                <a href="#" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
               </td>
               <td><h4>Price: <br>£<?= $product_info['our_price'];?>.00</h4></td>
               <td><h4>TBC</h4></td>
@@ -57,7 +57,8 @@
         </div>
       </div>
       <div class="col-lg-9 col-md-9 col-sm-12">
-        <a href="index.php" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Continue Shopping</a>
+        <a href="index.php" class="btn btn-default btn-lg"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+ Continue Shopping</a>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12">
         <form method="post" action="cart.php">
@@ -78,3 +79,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/e3c6915189.js"></script>

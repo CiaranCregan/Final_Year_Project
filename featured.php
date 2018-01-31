@@ -5,7 +5,7 @@
 
 	while ($pro = $result->fetch_assoc()) : ?>
 		<section id="best-sellers">
-			<div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="col-md-3 col-sm-6 col-xs-6">
 						<img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">
 						<div class="content">
 							<h4><?= $pro['title']; ?></h4>
@@ -15,7 +15,4 @@
 						</div>
 			</div>
 		</section>
-
-
-
 	<?php endwhile; ?>
