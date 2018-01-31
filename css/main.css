@@ -1,23 +1,88 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+/* CONSTANTS */
+.primary-color {
+	color: #6799a3;
+}
+.secondary-color {
+	color: #e88eba;
+}
+.btn-default{
+	background: #6799a3;
+	border-color: #6799a3;
+	color: #aee0c5;
+}
+.btn-default:hover{
+	background: #fff;
+	border-color: #6799a3;
+}
+/* END OF CONSTANTS */
 
+/* pages navbar code */
 .navbar{
         margin-bottom: 0;
-    }
-
+}
+.navbar-inverse{
+	background: #f1f1f1;
+	border-color: #f1f1f1;
+}
+.navbar-inverse .navbar-nav > li > a{
+	color: #6799a3;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+	color: #6799a3;
+}
 .navbar-brand {
 	font-size: 40px;
 }
 
 .navbar-inverse .navbar-brand{
-	color: white;
+	color: #6799a3; 
+}
+.navbar-inverse .navbar-brand:hover{
+	color: #6799a3; 
 }
 
+/* Index.php jumbotron code */
 .jumbotron{
-	padding-top: 20px;
+	height: 500px;
+	background: url(../img/hero-img.jpg);
+	background-position: center;
+	padding-top: 200px;
     margin-bottom: 0;
-    background-color: orange;
-    }
+}
+.jumbotron h2{
+	font-size: 50px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+/* best sellers images + prices */
+.img-thumb{
+	width: 100%;
+}
+.list-price{
+	text-decoration: line-through;
+}
 
-/* login form css */
+/* best-sellers mobile css */
+#best-sellers .col-md-3{
+	padding-bottom: 10px;
+}
+/*#best-sellers{
+	text-align: center;
+}
+#best-sellers .col-xs-12{
+	padding-bottom: 10px;
+}
+#best-sellers .btn{
+	width: 100%;
+}*/
+/* END OF INDEX.PHP CSS */
+
+/* Login.php form */
 .home{
 	width: 100%;
 	height: 100%;
@@ -36,35 +101,16 @@
 #input-button{
 	padding: 10px;
 }
+/* END OF LOGIN CSS */
 
-.img-thumb{
-	width: 100%;
-}
-
-/*hr{
-	color: red;
-	width: 50%;
-}*/
-
-.needed{
-	border-color: red !important;
-}
-
-.list-price{
-	text-decoration: line-through;
-}
-
-/**
- * The CSS shown here will not be introduced in the Quickstart guide, but shows
- * how you can use CSS to style your Element's container.
- */
+/* cart.php stripe css for card input */
 .StripeElement {
   background-color: white;
   height: 40px;
   padding: 10px 12px;
   border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
+  border: 1px solid #6799a3;
+  box-shadow: 0 1px 3px 0 #6799a3;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
 }
@@ -79,4 +125,8 @@
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+/* END OF CART.PHP */
+.display{
+	display: inline-block !important;
 }

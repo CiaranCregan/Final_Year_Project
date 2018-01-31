@@ -72,28 +72,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script type="text/javascript">
 
-  	$('#next').on('click', function(e){
-  		e.preventDefault();
-  		$('#step1').css('display', 'none');
-  		$('#next').css('display', 'none');
-  		$('#step2').css('display', 'block');
-  		$('#back').css('display', 'block');
-  		$('#payment').css('display', 'block');
-  		document.getElementById('heading').innerHTML = "Card Details (4000008260000000) + (4000058260000005)";
-  		//alert('hello World');
-  	});
-
-  	$('#back').on('click', function(e){
-  		e.preventDefault();
-  		$('#step1').css('display', 'block');
-  		$('#next').css('display', 'block');
-  		$('#step2').css('display', 'none');
-  		$('#back').css('display', 'none');
-  		$('#payment').css('display', 'none');
-  		document.getElementById('heading').innerHTML = "Account Information";
-  		//alert('hello World');
-  	});
-
 	  	// Create a Stripe client
 	var stripe = Stripe('pk_test_G6n6afCBeOt85e3qsTNcRfm2');
 
