@@ -23,11 +23,11 @@ require_once 'core/init.php';
           <!--li><a href="#"></a></li-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="basket.php"><span class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
+          <li><a href="basket.php"><span class="glyphicon glyphicon-shopping-cart"></span> Basket <?= (($shopping_cart_num_items > 0)?'<span class="badge">'.$shopping_cart_num_items.'</span>':'') ?></a></li>
           <?php
             if (!loggedin()) {
               echo '<li><a href="login.php">Login</a></li>
-                    <li><a href="signup.php">Register</a></li>';
+                    <li><a href="register.php">Register</a></li>';
             } else {
               echo '
                 <li class="dropdown">

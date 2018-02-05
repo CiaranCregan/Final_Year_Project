@@ -24,7 +24,7 @@
 				$count = $result->num_rows;
 
 				if ($count < 1) {
-				 	$errors[] = 'That password and username combination doesnt seem match. Please try again.';
+				 	$errors[] = $username . ' doesnt seem match. Please try again.';
 				 } else {
 				 	if (!password_verify($password, $user['password'])) {	
 						$errors[] = 'That password and username combination doesnt seem match. Please try again.';

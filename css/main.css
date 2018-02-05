@@ -3,6 +3,7 @@ body{
 	padding: 0;
 	font-family: sans-serif;
 }
+
 /* CONSTANTS */
 .primary-color {
 	color: #6799a3;
@@ -10,14 +11,25 @@ body{
 .secondary-color {
 	color: #e88eba;
 }
-.btn-default{
+.btn-main{
 	background: #6799a3;
 	border-color: #6799a3;
-	color: #aee0c5;
+	color: #fff;
+}
+.btn-default{
+	border-color: #6799a3;
+	transition: .5s;
 }
 .btn-default:hover{
 	background: #fff;
-	border-color: #6799a3;
+	margin: 0 20px;
+	transform: scale(1.2);
+}
+.img-thumb{
+	width: 100%;
+}
+.list-price{
+	text-decoration: line-through;
 }
 /* END OF CONSTANTS */
 
@@ -59,14 +71,25 @@ body{
 	font-weight: bold;
 	letter-spacing: 2px;
 }
-/* best sellers images + prices */
-.img-thumb{
-	width: 100%;
+/* our-brands section */
+#our-brands .panel-body{
+	color: #fff;
+	background: linear-gradient(-45deg, #fff, #6799a3);
 }
-.list-price{
-	text-decoration: line-through;
+#our-brands .panel{
+	margin: 0 10px;
 }
-
+#our-brands .panel-heading{
+	padding: 0;
+}
+#our-brands .panel-body h2{
+	padding: 5px 0;
+	margin-bottom: 5px;
+	border: 5px solid #fff;
+}
+#our-brands .panel-body li{
+	list-style-type: none;
+}
 /* best-sellers mobile css */
 #best-sellers .col-md-3{
 	padding-bottom: 10px;
@@ -129,15 +152,15 @@ body{
 /* END OF CART.PHP */
 
 /* profile.php css */
-.panel-default > .panel-heading{
+#user-accounts .panel-default > .panel-heading{
 	background: #6799a3;
 	border-color: #fff;
 }
-.panel-heading{
+#user-accounts .panel-heading{
 	padding: 0;
 	border-right: 3px;
 	border: 1px solid;
 }
-.panel-heading h3{
+#user-accounts .panel-heading h3{
 	color: #fff;
 }

@@ -17,13 +17,15 @@
 	$county = $_POST['county'];
 	$postcode = $_POST['postcode'];
 	$cart_id = $_POST['id'];
-	$item_quantity = $_POST['items'];
+	$item_quantity = $_POST['items'] . " item(s) have been purchased via Mattress Man";
+	$before_total = $_POST['total'];
 	$total = $_POST['total'] * 100;
 	$grand_total = $total;
 	$metadata = array(
 		"cart_id" => $cart_id,
-		"total" => $total,
-		"fullname" => $fullname,
+		"Total" => $total,
+		"Fullname" => $fullname,
+		"Address" => $address,
 	);
 
 	// echo $item_quantity;
@@ -33,13 +35,16 @@
 		$charge = \Stripe\Charge::create(array(
 		  "amount" 		=> $grand_total,
 		  "currency"	=> "gbp",
-		  "description" => $item_quantity . " item(s) have been purchased via Mattress Man",
+		  "description" => $item_quantity,
 		  "source" 		=> $token,
 		  "metadata" => $metadata
  		));
 
  		$query = "UPDATE shopping_cart SET purchased = 1 WHERE id = '$cart_id'";
  		$conn->query($query);
+ 		$date = date('Y-m-d H:i:s');
+ 		$query2 = "INSERT INTO payments (payment_id, cart_id, user_name, email, address, county, postcode, total, description, payment_date) VALUES ('$charge->id', '$shopping_cart_id', '$name', '$email', '$address', '$county', '$postcode', '$before_total', '$item_quantity', '$date')";
+ 		$conn->query($query2);
  		setcookie(SHOPPING_CART_COOKIE,'',1,'/',false);
  		header("Location: index.php");
 	} catch (Exception $e) {

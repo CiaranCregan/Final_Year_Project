@@ -12,8 +12,15 @@ include 'functions/general.php';
 require 'vendor/autoload.php';
 
 $shopping_cart_id = '';
+$shopping_cart_num_items = '';
 if (isset($_COOKIE[SHOPPING_CART_COOKIE])) {
 	$shopping_cart_id = escape($_COOKIE[SHOPPING_CART_COOKIE]);
+
+	$query = "SELECT * FROM shopping_cart WHERE id = '$shopping_cart_id'";
+	$result = $conn->query($query);
+	$cart_items = $result->fetch_assoc();
+	$items = json_decode($cart_items['items']);
+	$shopping_cart_num_items = count($items);
 }
 /*
 Modify at a later stage in the shopping cart development

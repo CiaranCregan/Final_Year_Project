@@ -25,7 +25,7 @@
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading text-center">
-                <a href="#">
+                <a href="order-history.php">
                   <i class="fa fa-history" aria-hidden="true" style="font-size: 80px;padding: 10px;color: #fff"></i>
                   <h3>Order History</h3>
                 </a>

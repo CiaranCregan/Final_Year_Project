@@ -11,7 +11,7 @@
 							<h4><?= $pro['title']; ?></h4>
 							<p class="list-price text-danger">List Price: <s>£<?= $pro['price']; ?></s></p>
 							<p>Our Price: £<?= $pro['our_price']; ?></p>
-							<button type="button" class="btn btn-default" onclick="featuredetails(<?= $pro['id']; ?>)">View product</button>
+							<button type="button" class="btn btn-main" onclick="featuredetails(<?= $pro['id']; ?>)">View product</button>
 						</div>
 			</div>
 		</section>

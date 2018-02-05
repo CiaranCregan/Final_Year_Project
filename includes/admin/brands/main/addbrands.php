@@ -43,7 +43,7 @@
 								}
 
 							$success = $conn->query($brandInsert);
-							//header("Location: brands.php");
+							// header("Location: brands.php");
 						}
 					}
 				}

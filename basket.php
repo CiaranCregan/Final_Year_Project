@@ -24,7 +24,10 @@
         <div class="table-responsive">
           <table class="table">
             <?php
-            foreach ($items as $an_item) {
+            if ($shopping_cart_id == '') {
+               echo "<h2>There are no items within your basket.</h2>";
+            } else {
+              foreach ($items as $an_item) {
               $id = $an_item['id'];
               $product = "SELECT * FROM products WHERE id = '$id'";
               $result = $conn->query($product);
@@ -52,7 +55,8 @@
             <?php 
               $items_quantity += $an_item['quantity'];
               $total += ($product_info['our_price'] * $an_item['quantity']);
-            } ?>
+            }
+            }?>
           </table>
         </div>
       </div>
