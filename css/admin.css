@@ -1,30 +1,31 @@
 /* Admin css*/
 body{
-	background: #f4f4f4;
+	background: #eee;
 }
-
-/* Global CSS */
-#m-color{
-	background-color: #31c1d3;
-  border-color: #17d9d4;
-  color: white;
+h1{
+  padding:0;
+  margin: 0;
 }
-
+#sidebar .container-fluid{
+  padding-top: 20px;
+}
 .text-aign{
   text-align: center;
 }
-
+#hide{
+  display: none;
+}
 /* Navbar CSS */
 .navbar{
-	min-height: 33px !important;
+	min-height: 50px !important;
 	margin-bottom: 0;
 	border-radius: 0;
 }
 
 .navbar-nav > li > a, .navbar-brand{
-	padding-top: 6px !important;
+	padding-top: 15px !important;
 	padding-bottom: 0;
-	height: 33px;
+	height: 50px;
 }
 
 .navbar-default {
@@ -93,57 +94,8 @@ body{
   color: #f4f4f4;
 }
 
-/* Head CSS */
-#head{
-	background-color: black;
-	color: #fff;
-	padding-bottom: 10px;
-	margin-bottom: 15px;
-  padding-left: 15px;
-  /*padding-right: 15px;*/
-}
-
-#head #head-create{
-	padding-top: 22px;
-}
-
-/* Breadcrumb CSS */
-.breadcrumb{
-	background-color: #cccccc;
-}
-
-.breadcrumb a{
-	color: #333333;
-}
-
-/* Main Content CSS */
-#size-h2{
-	font-size: 25px;
-}
-
-#main-users-margin{
-  margin-top: 20px;
-}
-
-#products-margin{
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-
-/* Media Queries */
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #ffffff;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #f4f4f4;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #f4f4f4;
-    background-color: #17d9d4;
-  }
+/* SIDEBAR CSS */
+#sidebar .list-group-item{
+  background: #2d2b32;;
+  color: #fff;
 }

@@ -1,11 +1,11 @@
 /* Sidebar & Main CSS */
 #sidebar-wrapper{
 	z-index: 1;
-	position: absolute;
+	position: fixed;
 	width:0;
 	height:100%;
 	overflow-y: hidden;
-	background: black;
+	background: red;
 }
 
 #main-wrapper{

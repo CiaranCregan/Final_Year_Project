@@ -11,15 +11,15 @@ include '/includes/overall/a_header.php';
 ?>
 <div id="wrapper">
 	
-	<?php include 'includes/admin/sidebar.php'; ?>
+	<!-- <?php include 'includes/admin/sidebar.php'; ?> -->
 
 	<div id="main-wrapper">
 		<?php 
-		include 'includes/admin/b_nav.php';
-		include 'includes/admin/breadcrumb.php';
+		// include 'includes/admin/b_nav.php';
+		// include 'includes/admin/breadcrumb.php';
 		include 'includes/admin/main.php';
-		include 'includes/overall/a_footer.php';
 		?>
 	</div>
-
 </div>
+
+<script src="https://use.fontawesome.com/e3c6915189.js"></script>

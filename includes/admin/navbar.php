@@ -11,13 +11,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand" id="menu-toggle"><span class="glyphicon glyphicon-triangle-right"></span> </a>
-      <a class="navbar-brand text-center" href="index.php">The Mattress Man</a>
+      <a class="navbar-brand text-center" href="index.php"><h1>The Mattress Man</h1></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul id="hide" class="nav navbar-nav">
         <li class="active"><a href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a></li>
         <li><a href="brands.php">Brands</a></li>
         <li><a href="products.php">Products</a></li>
