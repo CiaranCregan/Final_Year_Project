@@ -1,10 +1,7 @@
 <section id="main">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<h2>Brands</h2>
-					<hr>
-				</div>
+				<?php include 'includes/admin/b_nav.php' ;?>
 			<!-- Brands side menu -->
 				<?php include 'includes/admin/brands/main/sidemenu.php'; ?>
 			<!-- End of Dashboard Side Menu -->	

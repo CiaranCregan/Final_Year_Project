@@ -45,7 +45,7 @@
 
 					$token = $_SESSION['token'] = md5(uniqid())
 				?>
-					<div class="col-md-12">
+					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div id="m-color" class="panel-heading">
 							   <h3 class="panel-title">Add New Product</h3>
@@ -131,7 +131,7 @@
 						</div> ';
 					}
 				?>
-				<div class="col-md-12">
+				<div class="col-md-9">
 					<div class="panel panel-default">
 						<div id="m-color" class="panel-heading">
 						   <h3 class="panel-title">All Products</h3>

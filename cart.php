@@ -20,7 +20,7 @@
       <div class="col-md-6 col-md-offset-3">
       	<div class="errors"></div>
       	<div id="shipping" class="panel panel-default">
-		  <div class="panel-heading"><h1 id="heading">Account Information</h1></div>
+		  <div class="panel-heading"><h1 id="heading">Account Information (4000008260000000)</h1></div>
 		  <div class="panel-body">
 		    <form id="payment-form" action="success.php" method="post">
 		    	<input type="hidden" name="id" value="<?= $shopping_cart_id;?>">

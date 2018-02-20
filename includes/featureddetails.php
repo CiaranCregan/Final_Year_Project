@@ -41,7 +41,7 @@
 						<h4>Descripton</h4>
 						<p><?= html_entity_decode($products_info['description']); ?></p>
 						<hr>
-						<p>Bed Brand: <?= $brand_id_info['brand_name']; ?></p>
+						<p><?= $brand_id_info['brand_name']; ?></p>
 						<p>Our Price: £<?= $products_info['our_price']; ?></p>
 						<form action="added_to_cart.php" method="post" id="add_to_cart">
 							<input type="hidden" name="id" value="<?= $products_info['id'] ;?>">

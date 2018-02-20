@@ -3,7 +3,7 @@
 					$result = $conn->query($showBrands);
 				?>
 				
-				<div class="col-md-5">
+				<div class="col-md-3">
 					<div class="panel panel-default">
 						<div id="m-color" class="panel-heading">
 						   <h3 class="panel-title">Bed Brands</h3>

@@ -7,12 +7,12 @@
 		<section id="best-sellers">
 			<div class="col-md-3 col-sm-6 col-xs-6">
 						<img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">
-						<div class="content">
-							<h4><?= $pro['title']; ?></h4>
-							<p class="list-price text-danger">List Price: <s>£<?= $pro['price']; ?></s></p>
-							<p>Our Price: £<?= $pro['our_price']; ?></p>
-							<button type="button" class="btn btn-main" onclick="featuredetails(<?= $pro['id']; ?>)">View product</button>
+						<h4 class="text-center"><?= $pro['title']; ?></h4>
+						<div class="content text-center">
+							<!-- <p class="list-price text-danger">£<?= $pro['price']; ?></p> -->
+							<h3 style="color: green;">Price: £<?= $pro['our_price']; ?></h3>
 						</div>
+						<button type="button" class="btn btn-main btn-block" onclick="featuredetails(<?= $pro['id']; ?>)">View product</button>
 			</div>
 		</section>
 	<?php endwhile; ?>

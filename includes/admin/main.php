@@ -6,38 +6,27 @@
 		<div class="container-fluid">
 			<div class="row">
 			<!-- Dashboard side menu -->
-			<div class="col-md-3">
-				<div class="col-md-12">
-					<div class="list-group">
-					  <a href="brands.php" class="list-group-item"><h4><i class="fa fa-folder-open"></i> Dashboard</h4></a>
-					  <a href="brands.php" class="list-group-item"><h4>Brands</h4></a>
-					  <a href="brands.php" class="list-group-item"><h4>Products</h4></a>
-					  <a href="brands.php" class="list-group-item"><h4>Users</h4></a>
-					  <a href="brands.php" class="list-group-item"><h4>Orders</h4></a>
-					  <a href="brands.php" class="list-group-item"><h4>Tasks</h4></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<div class="col-md-4">
+			<?php include 'includes/admin/b_nav.php' ;?>
+			<div class="col-sm-12 col-md-9">
+				<div class="col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-folder-open"></i></h1>
 						<h3>65</h3>
-						<h4>New Orders</h4>
+						<a href="orders.php" class="btn btn-default">View Orders</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-user"></i></h1>
 						<h3>12</h3>
-						<h4>New Users</h4>
+						<a href="users.php" class="btn btn-default">View Users</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-tasks"></i></h1>
 						<h3>6</h3>
-						<h4>New Tasks</h4>
+						<a href="#" class="btn btn-default">View Tasks</a>
 					</div>
 				</div>
 				<div class="col-md-12">

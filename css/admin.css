@@ -5,6 +5,7 @@ body{
 h1{
   padding:0;
   margin: 0;
+  line-height: 0.5;
 }
 #sidebar .container-fluid{
   padding-top: 20px;
@@ -18,7 +19,7 @@ h1{
 /* Navbar CSS */
 .navbar{
 	min-height: 50px !important;
-	margin-bottom: 0;
+	margin-bottom: 40px;
 	border-radius: 0;
 }
 
@@ -29,30 +30,30 @@ h1{
 }
 
 .navbar-default {
-  background-color: #31c1d3;
-  border-color: #17d9d4;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .navbar-default .navbar-brand {
-  color: #ffffff;
+  color: #6799a3;;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #f4f4f4;
+  color: #6799a3;
 }
 
 .navbar-default .navbar-text {
-  color: #ffffff;
+  color: #333;;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #ffffff;
+  color: #6799a3;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #f4f4f4;
+  color: #6799a3;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -70,15 +71,16 @@ h1{
 }
 
 .navbar-default .navbar-toggle {
-  border-color: #17d9d4;
+  background: #6799a3;
+  border-color: #fff;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #17d9d4;
+  background-color: #6799a3;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .navbar-default .navbar-collapse,
@@ -96,6 +98,14 @@ h1{
 
 /* SIDEBAR CSS */
 #sidebar .list-group-item{
-  background: #2d2b32;;
+  background: #6799a3;
+  color: #fff;
+}
+#sidebar .well{
+  background: #fff;
+}
+
+#main .list-group-item{
+  background: #6799a3;;
   color: #fff;
 }
