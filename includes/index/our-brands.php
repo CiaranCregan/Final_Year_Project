@@ -1,4 +1,4 @@
-      <div class="col-md-4">
+      <div class="col-sm-4 col-md-4">
         <div class="row">
           <div class="panel panel-default">
             <div id="m-color" class="panel-heading">
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-sm-4 col-md-4">
         <div class="row">
           <div class="panel panel-default">
             <div id="m-color" class="panel-heading">
@@ -40,7 +40,7 @@
         </div>
       </div> 
 
-      <div class="col-md-4">
+      <div class="col-sm-4 col-md-4">
         <div class="row">
           <div class="panel panel-default">
             <div id="m-color" class="panel-heading">

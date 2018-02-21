@@ -61,17 +61,30 @@ body{
 
 /* Index.php jumbotron code */
 .jumbotron{
-	height: 500px;
+	height: 500px; /* media query 350px */
 	background: url(../img/hero-img.jpg);
 	background-position: center;
-	padding-top: 200px;
+	padding-top: 200px; /* media query 50px */
     margin-bottom: 0;
 }
 .jumbotron h2{
-	font-size: 50px;
-	font-weight: bold;
+	font-size: 50px; /* media query 30px */
+	font-weight: bold; /* media query normal */
 	letter-spacing: 2px;
 }
+@media screen and (min-width: 320px) and (max-width: 450px) {
+    .jumbotron{
+    	height: 350px;
+    	padding-top: 50px;
+    }
+    .jumbotron h2{
+    	font-size: 30px;
+    }
+    .jumbotron a{
+    	margin-bottom: 5px;
+    }
+}
+
 /* our-brands section */
 #our-brands .panel-body{
 	color: #fff;
@@ -91,10 +104,21 @@ body{
 #our-brands .panel-body li{
 	list-style-type: none;
 }
-/* best-sellers mobile css */
-#best-sellers .col-md-3{
-	padding-bottom: 10px;
+@media screen and (min-width: 320px) {
+    #our-brands .panel{
+    	margin-bottom: 10px;
+    }
+
+    #best-sellers .col-xs-12{
+    	margin-bottom: 10px;
+    }
 }
+@media screen and (min-width: 320px) and (max-width: 450px) and (orientation: landscape){
+	#best-sellers .col-xs-12{
+    	width: 50%;
+    }
+}
+/* best-sellers mobile css */
 /*#best-sellers{
 	text-align: center;
 }

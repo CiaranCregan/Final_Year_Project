@@ -137,7 +137,7 @@
 						   <h3 class="panel-title">All Products</h3>
 						</div>
 						<div class="panel-body table-responsive">
-							<a href="products.php?addproduct=true" id="products-margin" class="btn btn-success pull-right">Add new Product</a>
+							<a href="products.php?addproduct=true" id="products-margin" class="btn btn-success">Add new Product</a>
 							<table class="table table-bordered table-condensed table-striped">
 								<thead>
 									<th>Edit Product</th>
@@ -181,7 +181,7 @@
 									<?php endwhile ;?>
 								</tbody>
 							</table>
-							<a href="archived.php" id="products-margin" class="btn btn-danger pull-right <?= (($row['count'] == 0)?'disabled':'') ;?>"><?= (($row['count'] == 0)?''.$row['count'].' Deleted Products':''. $row['count'] .' Deleted Products, View Now') ?> </a>
+							<a href="archived.php" id="products-margin" class="btn btn-danger <?= (($row['count'] == 0)?'disabled':'') ;?>"><?= (($row['count'] == 0)?''.$row['count'].' Deleted Products':''. $row['count'] .' Deleted Products, View Now') ?> </a>
 						</div>
 					</div>
 				</div>
