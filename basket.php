@@ -17,7 +17,8 @@
       Better move fast before your items sell out!
     </h3>
   </div>
-  <div class="container" style="margin-top: 40px;">
+  <section id="basket-items">
+    <div class="container" style="margin-top: 40px;">
     <h1 class="text-center">My Shopping Bag</h1>
     <div class="row" style="margin-top: 40px;">
       <div class="col-md-12">
@@ -34,7 +35,7 @@
               $product_info = $result->fetch_assoc();
             ?>
             <tr>
-              <td><img src="<?= $product_info['image'] ;?>"></td>
+              <td><img class="" src="<?= $product_info['image'] ;?>" width="100%" height="120px"></td>
               <td>
                 <h4>
                   <?= $product_info['title'];?>
@@ -42,15 +43,18 @@
                 <p class="list-price text-danger">Was: £<?= $product_info['price'];?>.00</p>
                 <p class="text-success">Now: £<?= $product_info['our_price'];?>.00</p>
               </td>
-              <td><h4>Size: <br>Single</h4></td>
+              <td><h4>Size: <br><?= $product_info['size'] ;?></h4></td>
               <td class="text-center" style="width:200px;">
                 <h4>Quantity:</h4><br>
-                <a href="#" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></a>
+                <button class="btn btn-danger" onclick="cart_update('minus','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">-</button>
                 <a href="#" class="btn btn-default" disabled><?= $an_item['quantity'];?></a>
-                <a href="#" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                <?php if ($an_item['quantity'] < $product_info['stock']) : ?>
+                <button class="btn btn-success" onclick="cart_update('add','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">+</button>
+                <?php endif; ?>
               </td>
               <td><h4>Price: <br>£<?= $product_info['our_price'];?>.00</h4></td>
-              <td><h4>TBC</h4></td>
+              <td><h4>Storage: <br><?= (($an_item['side'] == '')?'None':$an_item['side']);?></h4></td>
+              <td><h4>Base Colour: <?= $an_item['color'];?></h4></td>
             </tr>
             <?php 
               $items_quantity += $an_item['quantity'];
@@ -68,7 +72,7 @@
         <form method="post" action="cart.php">
           <input type="hidden" name="quantity" value="<?= $items_quantity; ?>">
           <input type="hidden" name="total" value="<?= $total; ?>">
-          <input class="btn btn-warning btn-lg" type="submit" name="submit" value="Secure Checkout">
+          <input class="btn btn-success btn-lg" type="submit" name="submit" value="Secure Checkout">
         <h4>Item Quantity: <?= $items_quantity; ?></h4>
         <h4>Total: £<b><?= $total; ?>.00</b><br>
           <p>(Delivery Excluded)</p>
@@ -77,10 +81,6 @@
       </div>
     </div>
   </div>
+  </section>
 </div> 
-
- <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/e3c6915189.js"></script>
+<?php include 'includes/overall/m_footer.php'; ?>

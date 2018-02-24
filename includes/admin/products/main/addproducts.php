@@ -173,6 +173,8 @@
 									<th>Product</th>
 									<th>Price</th>
 									<th>Brand</th>
+									<th>Size</th>
+									<th>Stock Level</th>
 									<th>Featured</th>
 									<th>Sold</th>
 									<th>Delete Product</th>
@@ -195,6 +197,8 @@
 										<td><?= $product['title']; ?></td>
 										<td>£<?= $product['our_price']; ?></td>
 										<td><?= $brandname; ?></td>
+										<td><?= $product['size']; ?></td>
+										<td><?= $product['stock']; ?></td>
 										<td class="<?= (($product['featured'] == 1)?'success':'danger'); ?>">
 										<a class="btn btn-xs btn-default" href="products.php?featured=<?=(($product['featured'] == 0)?'1':'0');?>&id=<?=$product['id'];?>">
 											<span class="glyphicon glyphicon-<?= (($product['featured'] == 1)?'minus':'plus'); ?>"></span>

@@ -38,12 +38,23 @@
       function save_to_cart(){
         $('#errors').html("");
         var quantity = $('#quantity').val();
+        var side = $('#side').val();
+        var color = $('#color').val();
+        //alert(quantity + side + color);
         var error = '';
         var data = $('#add_to_cart').serialize();
-        //alert(data);
+        // alert(data);
 
         if (quantity == '') {
-          error += '<p class="text-danger text-center">You must select a quantity.</p>';
+          error += '<p class="text-danger text-center">You must provide a quantity.</p>';
+          $('#errors').html(error);
+          return;
+        } else if(side == '') {
+          error += '<p class="text-danger text-center">You must provide a side for storage.</p>';
+          $('#errors').html(error);
+          return;
+        } else if(color == ''){
+          error += '<p class="text-danger text-center">You must provide a side for colour.</p>';
           $('#errors').html(error);
           return;
         } else {
@@ -60,6 +71,22 @@
             }
           });
         }
+      }
+
+      function cart_update(mode, id, side, color){
+        var data = {"mode" : mode, "id" : id, "side" : side, "color" : color};
+        //console.log(data);
+        $.ajax({
+            url: 'includes/cart-update.php',
+            method: 'post',
+            data: data,
+            success: function(){
+              location.reload();
+            },
+            error: function(){
+              alert("Oh no, it looks like something has when wrong...");
+            }
+          });
       }
 
             // CAROUSEL FUNCTION, HOME PAGE

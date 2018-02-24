@@ -5,12 +5,16 @@ require_once '../core/init.php';
 // get the data coming from the featured modal
 $id = escape($_POST['id']);
 $quantity = escape($_POST['quantity']);
+$side = escape($_POST['side']);
+$color = escape($_POST['color']);
 
 // setting up an array that will allow me to store the items in a json string
 $added_items = array();
 $added_items[] = array(
 	'id' => $id,
-	'quantity' => $quantity
+	'quantity' => $quantity,
+	'side' => $side,
+	'color' => $color
 );
 // setting a path for localhost so that cookies are accessible
 //$path = ($_SERVER['HTTP_POST'] != 'localhost')?'.' . $_SERVER['HTTP_POST']:false;
@@ -33,7 +37,7 @@ if ($shopping_cart_id != '') {
 	$matched_items = 0;
 	$new_cart_items = array();
 	foreach ($cart_items as $an_item) {
-		if ($added_items[0]['id'] == $an_item['id']) {
+		if ($added_items[0]['id'] == $an_item['id'] && $added_items[0]['side'] == $an_item['side'] && $added_items[0]['color'] == $an_item['color']) {
 			$an_item['quantity'] = $an_item['quantity'] + $added_items[0]['quantity'];
 			$matched_items = 1;
 		}

@@ -15,7 +15,7 @@
           <a href="#" class="btn btn-default">View all Headboards</a>
       </div>
     </div>
-
+    
     <section id="beds">
         <div class="col-md-10 pull-right">
           <h2 class="text-center">Beds</h2>
