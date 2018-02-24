@@ -14,11 +14,12 @@
 							$producterrors = '';
 							$title = escape($_POST['title']);
 							$brand = escape($_POST['brand']);
+							$storage = escape($_POST['storage']);
 							$editor1 = escape($_POST['editor1']);
 							$price = escape($_POST['price']);
 							$ourprice = escape($_POST['ourprice']);
 
-							$required = array('title','price','ourprice','brand','editor1');
+							$required = array('title','price','ourprice','brand','editor1','storage');
 							foreach ($required as $require) {
 								if ($_POST[$require] == '') {
 									$producterrors[] .= 'All fields marked with * must been filled.';
@@ -29,7 +30,8 @@
 						if (!empty($producterrors)) {
 							echo product_errors($producterrors);
 						} else {
-							$sql2 = "INSERT INTO products (title, price, our_price, brand, description) VALUES ('$title', '$price', '$ourprice', '$brand', '$editor1')";
+							$sql2 = "INSERT INTO products (title, price, our_price, brand, description, storage) VALUES ('$title', '$price', '$ourprice', '$brand', '$editor1', '$storage')";
+							// var_dump($sql2);die();
 							$query2 = $conn->query($sql2);
 							echo 
 							'	
@@ -60,10 +62,10 @@
 									  <label for="price">Price*:</label>
 									  <input class="form-control" type="text" name="price" id="price">
 								  </div>
-								  <div class="form-group col-md-4">
+<!-- 								  <div class="form-group col-md-4">
 									  <label for="ourprice">Our Price*:</label>
 									  <input class="form-control" type="text" name="ourprice" id="ourprice">
-								  </div>
+								  </div> -->
 								  <div class="form-group col-md-4">
 									  <label for="brand">Brand*:</label>
 									  <select class="form-control" name="brand" id="brand">
@@ -71,6 +73,33 @@
 									  	<?php while($row = $query->fetch_assoc()): ?>
 									  		<option value="<?= $row['id']; ?>"><?= $row['brand_name']; ?></option>
 									  	<?php endwhile; ?>
+									  </select>
+								  </div>
+								  <div class="form-group col-md-4">
+									  <label for="storage">Storage*:</label>
+									  <select class="form-control" name="storage" id="storage">
+									  	<option value=""></option>
+									  	<option value="1">Yes</option>
+									  	<option value="0">No</option>
+									  </select>
+								  </div>
+								  <div class="form-group col-md-4">
+									  <label for="type">Type*:</label>
+									  <select class="form-control" name="type" id="type">
+									  	<option value=""></option>
+									  	<option value="1">Bed</option>
+									  	<option value="0">Mattress</option>
+									  	<option value="0">Headboard</option>
+									  </select>
+								  </div>
+								  <div class="form-group col-md-4">
+									  <label for="size">Size*:</label>
+									  <select class="form-control" name="size" id="size">
+									  	<option value=""></option>
+									  	<option value="1">Single</option>
+									  	<option value="0">Small Double</option>
+									  	<option value="0">Double</option>
+									  	<option value="0">King Size</option>
 									  </select>
 								  </div>
 								  <!-- <div class="form-group col-md-8">

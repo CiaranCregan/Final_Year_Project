@@ -17,7 +17,7 @@
 	<div class="col-xs-12 col-sm-4 col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<img src="img/alexandra-gorn.jpg" width="100%" height="200px" class="img-circle">
+				<img src="img/profile.png" width="100%" height="200px" class="img-circle">
 				<div class="col-md-12 text-center">
 					<h4><?= $user['name']; ?></h4>
 					<a href="#" class="btn btn-default btn-block btn-success"><i class="fa fa-phone" style="font-size: 20px;color: #fff;"></i></a>

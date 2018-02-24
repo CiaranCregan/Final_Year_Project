@@ -12,7 +12,7 @@
                   <h4><i class="fa fa-check"></i> Double</h4>
                   <h4><i class="fa fa-check"></i> King Size</h4>
                   <h4><i class="fa fa-check"></i> Superking Size</h4>
-                  <a href="#" class="btn btn-default">Shop Divan</a>
+                  <a href="beds.php" class="btn btn-default">Shop Divan</a>
                 </div>
              </div>
           </div>

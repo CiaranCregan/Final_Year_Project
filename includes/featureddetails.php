@@ -42,7 +42,6 @@
 						<p><?= html_entity_decode($products_info['description']); ?></p>
 						<hr>
 						<p><?= $brand_id_info['brand_name']; ?></p>
-						<p>Our Price: £<?= $products_info['our_price']; ?></p>
 						<form action="added_to_cart.php" method="post" id="add_to_cart">
 							<input type="hidden" name="id" value="<?= $products_info['id'] ;?>">
 						  <div class="form-group">
@@ -56,13 +55,38 @@
 						      <option>5</option>
 						    </select>
 						  </div>
+						  <?php 
+						  	if ($products_info['storage'] == 1) {
+						  		echo '
+						  			<div class="form-group">
+						    			<label for="side">Select Drawer Side</label>
+						    			<select class="form-control" id="side" name="side">
+						      				<option></option>
+						      				<option>Left</option>
+						      				<option>Right</option>
+						    			</select>
+						  			</div>
+						  			';
+						  	}
+						  ?>
+						<div class="form-group">
+						  	<label for="color">Base Colour</label>
+						  	<select class="form-control" id="color" name="color">
+						      <option></option>
+						      <option>Black</option>
+							  <option>Grey</option>
+							  <option>Purple</option>
+							  <option>Red</option>
+							</select>
+						<div>
+							<h4>Our Price: £<?= $products_info['our_price']; ?></h4>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-default" onclick="modalClose()">Close</button>
+			<button class="btn btn-warnign" onclick="modalClose()">Close</button>
 			<button  onclick="save_to_cart();return false;" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button>
 		</div>
 	</div>
