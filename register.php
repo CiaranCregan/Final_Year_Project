@@ -34,15 +34,15 @@
 				if ($count > 0) {
 					$errors[] = "That username already exists, please try again";
 				}
-				$password_hashed = password_hash($password, PASSWORD_DEFAULT);
-				$date = date('Y-m-d H:i:s');
-				$insert_query = "INSERT INTO users (username, password, name, email, joindate, roles) VALUES ('$username', '$password_hashed', '$fullname', '$email', '$date', 'user')";
-				$conn->query($insert_query);
 			}
 
 			if (!empty($errors)) {
 				echo errors($errors);
 			} else {
+				$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+				$date = date('Y-m-d H:i:s');
+				$insert_query = "INSERT INTO users (username, password, name, email, joindate, roles) VALUES ('$username', '$password_hashed', '$fullname', '$email', '$date', 'user')";
+				$conn->query($insert_query);
 				header("Location: login.php");
 			}
 		}
