@@ -16,10 +16,12 @@
 							$brand = escape($_POST['brand']);
 							$storage = escape($_POST['storage']);
 							$editor1 = escape($_POST['editor1']);
+							$stock = escape($_POST['stock']);
 							$price = escape($_POST['price']);
-							$ourprice = escape($_POST['ourprice']);
+							$type = escape($_POST['type']);
+							$size = escape($_POST['size']);
 
-							$required = array('title','price','ourprice','brand','editor1','storage');
+							$required = array('title','price','brand','editor1','storage', 'stock', 'type', 'size');
 							foreach ($required as $require) {
 								if ($_POST[$require] == '') {
 									$producterrors[] .= 'All fields marked with * must been filled.';
@@ -30,7 +32,7 @@
 						if (!empty($producterrors)) {
 							echo product_errors($producterrors);
 						} else {
-							$sql2 = "INSERT INTO products (title, price, our_price, brand, description, storage) VALUES ('$title', '$price', '$ourprice', '$brand', '$editor1', '$storage')";
+							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', '$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
 							// var_dump($sql2);die();
 							$query2 = $conn->query($sql2);
 							echo 
@@ -62,6 +64,10 @@
 									  <label for="price">Price*:</label>
 									  <input class="form-control" type="text" name="price" id="price">
 								  </div>
+								  <div class="form-group col-md-4">
+									  <label for="stock">Stock*:</label>
+									  <input class="form-control" type="text" name="stock" id="stock">
+								  </div>
 <!-- 								  <div class="form-group col-md-4">
 									  <label for="ourprice">Our Price*:</label>
 									  <input class="form-control" type="text" name="ourprice" id="ourprice">
@@ -87,19 +93,19 @@
 									  <label for="type">Type*:</label>
 									  <select class="form-control" name="type" id="type">
 									  	<option value=""></option>
-									  	<option value="1">Bed</option>
-									  	<option value="0">Mattress</option>
-									  	<option value="0">Headboard</option>
+									  	<option value="Bed">Bed</option>
+									  	<option value="Mattress">Mattress</option>
+									  	<option value="Headboard">Headboard</option>
 									  </select>
 								  </div>
 								  <div class="form-group col-md-4">
 									  <label for="size">Size*:</label>
 									  <select class="form-control" name="size" id="size">
 									  	<option value=""></option>
-									  	<option value="1">Single</option>
-									  	<option value="0">Small Double</option>
-									  	<option value="0">Double</option>
-									  	<option value="0">King Size</option>
+									  	<option value="Single">Single</option>
+									  	<option value="Small Double">Small Double</option>
+									  	<option value="Double">Double</option>
+									  	<option value="King Size">King Size</option>
 									  </select>
 								  </div>
 								  <!-- <div class="form-group col-md-8">
@@ -174,6 +180,7 @@
 									<th>Price</th>
 									<th>Brand</th>
 									<th>Size</th>
+									<th>Storage</th>
 									<th>Stock Level</th>
 									<th>Featured</th>
 									<th>Sold</th>
@@ -198,6 +205,7 @@
 										<td>£<?= $product['our_price']; ?></td>
 										<td><?= $brandname; ?></td>
 										<td><?= $product['size']; ?></td>
+										<td><?= (($product['storage'] == 0)?'None':'Yes');?></td>
 										<td><?= $product['stock']; ?></td>
 										<td class="<?= (($product['featured'] == 1)?'success':'danger'); ?>">
 										<a class="btn btn-xs btn-default" href="products.php?featured=<?=(($product['featured'] == 0)?'1':'0');?>&id=<?=$product['id'];?>">
