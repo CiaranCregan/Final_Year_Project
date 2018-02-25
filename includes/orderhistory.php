@@ -46,9 +46,12 @@
 						              	$orders = $result->fetch_assoc();
 					            ?>
 					            <tr>
-					              <td><img src="<?= $orders['image'];?>"></td>
+					              <td><img src="<?= $orders['image'];?>" style="width:200px;height:200px;"></td>
 					              <td><h4>Product Name:</h4> <br><?= $orders['title'];?></td>
+					              <td><h4>Size:</h4> <br><?= $orders['size'];?></td>
 					              <td><h4>Quantity:</h4> <br><?= $order['quantity'];?></td>
+					              <td><h4>Storage:</h4> <br><?= (($orders['storage'] == 0)?'None':$order['side'] . ' x2');?></td>
+					              <td><h4>Colour:</h4> <br><?= $order['color'];?></td>
 					              <td><h4>Price:</h4> <br>£<?= $orders['our_price'];?>.00</td>
 					            </tr>
 					            <?php } ?>

@@ -12,7 +12,7 @@
     <div class="col-md-4">
       <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <a href="#">
+              <a href="account.php">
                 <i class="fa fa-cog" aria-hidden="true" style="font-size: 80px;padding: 10px;color: #fff"></i>
               <h3>Account Settings</h3>
               </a>

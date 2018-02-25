@@ -45,10 +45,13 @@
 						              	$result = $conn->query($orderQuery);
 						              	$orders = $result->fetch_assoc();
 					            ?>
-					            <tr>
-					              <td><img src="<?= $orders['image'];?>"></td>
+					            <tr class="text-center">
+					              <td><img src="<?= $orders['image'];?>" style="width:200px;height:200px;"></td>
 					              <td><h4>Product Name:</h4> <br><?= $orders['title'];?></td>
-					              <td><h4>Quantity of Product:</h4> <br>Still to be added</td>
+					              <td><h4>Quantity:</h4> <br><?=$order['quantity'];?></td>
+					              <td><h4>Storage:</h4> <br><?= (($orders['storage'] == 0)?'None':$order['side'] . ' x2');?></td>
+					              <td><h4>Colour:</h4> <br><?= $order['color'];?></td>
+					              <td><h4>Price:</h4> <br>£<?= $orders['our_price'];?>.00</td>
 					            </tr>
 					            <?php } ?>
 					        </table>
@@ -64,7 +67,7 @@
 	</div>
 </div>
 <script type="text/javascript">
-	// funcitpn responsible for removing html data from best seller section and closing the modal
+	// funciton responsible for removing html data from best seller section and closing the modal
 	function modalClose(){
 		jQuery('#order').modal('hide');
 		setTimeout(function(){

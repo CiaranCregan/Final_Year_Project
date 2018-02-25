@@ -56,7 +56,7 @@ if ($shopping_cart_id != '') {
 	// ADD ITEMS INTO THE DATABASE
 	$cart_item = json_encode($added_items);
 	$cart_item_expire = date('Y-m-d H:i:s', strtotime('+30 days'));
-	$query = "INSERT INTO shopping_cart (items,item_expire_date) VALUES ('$cart_item', '$cart_item_expire')";
+	$query = "INSERT INTO shopping_cart (user_id,items,item_expire_date) VALUES ('$user_id','$cart_item', '$cart_item_expire')";
 	$conn->query($query);
 	$shopping_cart_id = $conn->insert_id;
 	setcookie(SHOPPING_CART_COOKIE,$shopping_cart_id,SHOPPING_CART_EXPIRE_DATE,'/',false);
