@@ -34,7 +34,7 @@ function brand_errors($branderrors){
 }
 
 function product_errors($producterrors){
-	$display = '<div class="col-md-12">';
+	$display = '<div class="col-md-9">';
 		foreach ($producterrors as $error) {
 			$display .= '
 						<div class="alert alert-danger alert-dismissible" role="alert">

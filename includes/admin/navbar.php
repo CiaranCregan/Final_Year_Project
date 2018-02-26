@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand text-center" href="index.php"><h1>Mattress Man</h1></a>
+      <a class="navbar-brand text-center" href="index.php"><h1>Return to Site</h1></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,7 +24,7 @@
         <li><a href="archived.php">Archived</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Delivery</a></li>
+        <li><a href="delivery.php">Delivery</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders<span class="caret"></span></a>
           <ul class="dropdown-menu">

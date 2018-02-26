@@ -23,6 +23,12 @@ require_once 'core/init.php';
           <!--li><a href="#"></a></li-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
           <li><a href="basket.php"><span class="glyphicon glyphicon-shopping-cart"></span> Basket <?= (($shopping_cart_num_items > 0)?'<span class="badge">'.$shopping_cart_num_items.'</span>':'') ?></a></li>
           <?php
             if (!loggedin()) {

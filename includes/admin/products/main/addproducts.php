@@ -5,22 +5,43 @@
 				$query = $conn->query($sql);
 				$row = $query->fetch_assoc();
 
-				if (isset($_GET['addproduct'])) { 
+				if (isset($_GET['addproduct']) || isset($_GET['editproduct'])) { 
 					$sql1 = "SELECT * FROM brands WHERE archived = 0 ORDER BY brand_name";
 					$query = $conn->query($sql1);
+					// checking to see if input values are present and assigning them to a varaible
+					// once set here we can then override them if the url is an add or an edit
+					$title = ((isset($_POST['title']) && !empty($_POST['title']))?escape($_POST['title']):'');
+					$price = ((isset($_POST['price']) && !empty($_POST['price']))?escape($_POST['price']):'');
+					$stock = ((isset($_POST['stock']) && !empty($_POST['stock']))?escape($_POST['stock']):'');
+					$brand = ((isset($_POST['brand']) && !empty($_POST['brand']))?escape($_POST['brand']):'');
+					$storage = ((isset($_POST['storage']) && !empty($_POST['storage']))?escape($_POST['storage']):'');
+					$type = ((isset($_POST['type']) && !empty($_POST['type']))?escape($_POST['type']):'');
+					$size = ((isset($_POST['size']) && !empty($_POST['size']))?escape($_POST['size']):'');
+					$editor1 = ((isset($_POST['editor1']) && !empty($_POST['editor1']))?escape($_POST['editor1']):'');
+
+					if (isset($_GET['editproduct'])) {
+						// assigning the get id to a variable
+						// grab all information about a product using the get id
+						// assign the product information to variables for editing purposes
+						$editId = (int)$_GET['editproduct'];
+						$editQuery = "SELECT * FROM  products WHERE id = '$editId'";
+						$result = $conn->query($editQuery);
+						$editInfo = $result->fetch_assoc();
+						$title = ((isset($_POST['title']) && !empty($_POST['title']))?escape($_POST['title']):$editInfo['title']);
+						$price = ((isset($_POST['price']) && !empty($_POST['price']))?escape($_POST['price']):$editInfo['our_price']);
+						$stock = ((isset($_POST['stock']) && !empty($_POST['stock']))?escape($_POST['stock']):$editInfo['stock']);
+						$brand = ((isset($_POST['brand']) && !empty($_POST['brand']))?escape($_POST['brand']):$editInfo['brand']);
+						$storage = ((isset($_POST['storage']) && !empty($_POST['storage']))?escape($_POST['storage']):$editInfo['storage']);
+						$type = ((isset($_POST['type']) && !empty($_POST['type']))?escape($_POST['type']):$editInfo['type']);
+						$size = ((isset($_POST['size']) && !empty($_POST['size']))?escape($_POST['size']):$editInfo['size']);
+						$editor1 = ((isset($_POST['editor1']) && !empty($_POST['editor1']))?escape($_POST['editor1']):$editInfo['description']);
+					}
 
 					if (postInputExists()) {
 						if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION{'token'}) {
-							$producterrors = '';
-							$title = escape($_POST['title']);
-							$brand = escape($_POST['brand']);
-							$storage = escape($_POST['storage']);
-							$editor1 = escape($_POST['editor1']);
-							$stock = escape($_POST['stock']);
-							$price = escape($_POST['price']);
-							$type = escape($_POST['type']);
-							$size = escape($_POST['size']);
+							$producterrors = ''; // setting up an empty array to store errors in for when they occur
 
+							// foreach loop that will run through all the posted variable to check for errors
 							$required = array('title','price','brand','editor1','storage', 'stock', 'type', 'size');
 							foreach ($required as $require) {
 								if ($_POST[$require] == '') {
@@ -29,15 +50,23 @@
 								}
 							}
 						}
+
+						// if errors not empty then it will display the in div 9 column with appriopiate error message
 						if (!empty($producterrors)) {
 							echo product_errors($producterrors);
 						} else {
 							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', '$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
+
+							// when get has been set this update query will run instead of the query above
+							// the above query is for adding a product
+							if (isset($_GET['editproduct'])) {
+								$sql2 = "UPDATE products SET title = '$title', our_price = '$price', brand = '$brand', type = '$type', size = '$size', stock = '$stock', description = '$editor1', storage = '$storage' WHERE id = '$editId'";
+							}
 							// var_dump($sql2);die();
 							$query2 = $conn->query($sql2);
 							echo 
 							'	
-								<div class="col-md-12">
+								<div class="col-md-9">
 									<div class="alert alert-success alert-dismissible" role="alert">
 									 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									 	<strong>Success!</strong><a href="products.php"> View</a>.
@@ -52,21 +81,21 @@
 					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div id="m-color" class="panel-heading">
-							   <h3 class="panel-title">Add New Product</h3>
+							   <h3 class="panel-title"><?=((isset($_GET['editproduct']))?'Edit ':'Add New ');?>Product</h3>
 							</div>
 							<div class="panel-body table-responsive">
-								<form action="products.php?addproduct=true" method="post" enctype="multipart/form-data">
+								<form action="products.php?<?=((isset($_GET['editproduct']))?'editproduct='.$editId:'addproduct=1');?>" method="post" enctype="multipart/form-data">
 								  <div class="form-group col-md-4">
 									  <label for="title">Product Title*:</label>
-									  <input class="form-control" type="text" name="title" id="title">
+									  <input class="form-control" type="text" name="title" id="title" value="<?=$title;?>">
 								  </div>
 								  <div class="form-group col-md-4">
 									  <label for="price">Price*:</label>
-									  <input class="form-control" type="text" name="price" id="price">
+									  <input class="form-control" type="text" name="price" id="price" value="<?=$price;?>">
 								  </div>
 								  <div class="form-group col-md-4">
 									  <label for="stock">Stock*:</label>
-									  <input class="form-control" type="text" name="stock" id="stock">
+									  <input class="form-control" type="text" name="stock" id="stock" value="<?=$stock;?>">
 								  </div>
 <!-- 								  <div class="form-group col-md-4">
 									  <label for="ourprice">Our Price*:</label>
@@ -75,9 +104,9 @@
 								  <div class="form-group col-md-4">
 									  <label for="brand">Brand*:</label>
 									  <select class="form-control" name="brand" id="brand">
-									  	<option value=""></option>
+									  	<option value="<?=$brand;?>"></option>
 									  	<?php while($row = $query->fetch_assoc()): ?>
-									  		<option value="<?= $row['id']; ?>"><?= $row['brand_name']; ?></option>
+									  		<option value="<?=$row['id'];?>"<?=(($brand == $row['id'])?' Selected':'');?>><?= $row['brand_name']; ?></option>
 									  	<?php endwhile; ?>
 									  </select>
 								  </div>
@@ -92,7 +121,7 @@
 								  <div class="form-group col-md-4">
 									  <label for="type">Type*:</label>
 									  <select class="form-control" name="type" id="type">
-									  	<option value=""></option>
+									  	<option value="<?=$type;?>"><?=$type;?></option>
 									  	<option value="Bed">Bed</option>
 									  	<option value="Mattress">Mattress</option>
 									  	<option value="Headboard">Headboard</option>
@@ -101,7 +130,7 @@
 								  <div class="form-group col-md-4">
 									  <label for="size">Size*:</label>
 									  <select class="form-control" name="size" id="size">
-									  	<option value=""></option>
+									  	<option value="<?=$size;?>"><?=$size;?></option>
 									  	<option value="Single">Single</option>
 									  	<option value="Small Double">Small Double</option>
 									  	<option value="Double">Double</option>
@@ -114,12 +143,12 @@
 								  </div> -->
 								  <div class="form-group col-md-12">
 									  <label for="editor1">Product Description*:</label>
-									  <textarea id="description" name="editor1" class="form-control" rows="8"></textarea>
+									  <textarea id="editor1" name="editor1" class="form-control" rows="8"><?=$editor1;?></textarea>
 								  </div>
 								  <div class="form-group col-md-12">
 									  <a href="products.php" class="btn btn-danger col-md-2">Cancel</a>
 									  <input type="hidden" name="token" value="<?= $token; ?>">
-									  <input type="submit" class="btn btn-success col-md-2 pull-right" value="Add Product">
+									  <input type="submit" class="btn btn-success col-md-2 pull-right" value="<?=((isset($_GET['editproduct']))?'Edit ':'Add ');?>Product">
 								  </div>
 								</form>
 							</div>
@@ -144,7 +173,7 @@
 						$conn->query($sql4);
 
 						echo 
-						'	<div class="col-md-12">
+						'	<div class="col-md-9">
 								<div class="alert alert-success alert-dismissible" role="alert">
 								 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								 	<strong>Success!</strong><a href="products.php"> View</a>.
@@ -172,6 +201,7 @@
 						   <h3 class="panel-title">All Products</h3>
 						</div>
 						<div class="panel-body table-responsive">
+							<a href="archived.php" id="products-margin" class="btn btn-danger <?= (($row['count'] == 0)?'disabled':'') ;?>"><?= (($row['count'] == 0)?''.$row['count'].' Deleted Products':''. $row['count'] .' Deleted Products, View Now') ?> </a>
 							<a href="products.php?addproduct=true" id="products-margin" class="btn btn-success">Add new Product</a>
 							<table class="table table-bordered table-condensed table-striped">
 								<thead>
@@ -198,7 +228,7 @@
 									?>
 										<tr>
 										<td>
-											<a href="products.php?edit<?= $product['id']; ?>" class="btn btn-xs btn-default">
+											<a href="products.php?editproduct=<?= $product['id']; ?>" class="btn btn-xs btn-default">
 										    	<span class="glyphicon glyphicon-pencil"></span>
 											</a>
 										</td>
@@ -224,7 +254,6 @@
 									<?php endwhile ;?>
 								</tbody>
 							</table>
-							<a href="archived.php" id="products-margin" class="btn btn-danger <?= (($row['count'] == 0)?'disabled':'') ;?>"><?= (($row['count'] == 0)?''.$row['count'].' Deleted Products':''. $row['count'] .' Deleted Products, View Now') ?> </a>
 						</div>
 					</div>
 				</div>

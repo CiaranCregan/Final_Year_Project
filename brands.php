@@ -6,7 +6,9 @@ if (!loggedin()) {
 }
 if (!employee_access('employee')) {
 	error_redirect('index.php');
-} 
+} elseif (employee_access('driver')) {
+	error_redirect('delivery.php');
+}
 include 'includes/overall/a_header.php'; 
 
 ?>
