@@ -54,7 +54,7 @@
           $('#errors').html(error);
           return;
         } else if(color == ''){
-          error += '<p class="text-danger text-center">You must provide a side for colour.</p>';
+          error += '<p class="text-danger text-center">You must provide a base colour.</p>';
           $('#errors').html(error);
           return;
         } else {

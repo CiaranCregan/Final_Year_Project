@@ -7,9 +7,9 @@
     <div class="jumbotron">
       <div class="container text-center">
           <h2 class="primary-color">Welcome to The Mattress Man Belfast</h2>
-          <a href="beds.php" class="btn btn-default">View all Beds</a>
-          <a href="#" class="btn btn-default">View all Mattresses</a>
-          <a href="#" class="btn btn-default">View all Headboards</a>
+          <a href="beds.php" class="btn btn-info">View all Beds</a>
+          <a href="mattresses.php" class="btn btn-info">View all Mattresses</a>
+          <a href="#" class="btn btn-info">View all Headboards</a>
       </div>
     </div>
     <section id="our-brands">

@@ -69,16 +69,22 @@
 						  			';
 						  	}
 						  ?>
-						<div class="form-group">
-						  	<label for="color">Base Colour</label>
-						  	<select class="form-control" id="color" name="color">
-						      <option></option>
-						      <option>Black</option>
-							  <option>Grey</option>
-							  <option>Purple</option>
-							  <option>Red</option>
-							</select>
-						<div>
+						  <?php 
+						  	if ($products_info['type'] == 'Bed') {
+						  		echo '
+						  			<div class="form-group">
+									  	<label for="color">Base Colour</label>
+									  	<select class="form-control" id="color" name="color">
+									      <option></option>
+									      <option>Black</option>
+										  <option>Grey</option>
+										  <option>Purple</option>
+										  <option>Red</option>
+										</select>
+									<div>
+						  			';
+						  	}
+						  ?>
 							<h4>Our Price: £<?= $products_info['our_price']; ?></h4>
 						</form>
 					</div>

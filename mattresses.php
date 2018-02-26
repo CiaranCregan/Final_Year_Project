@@ -4,7 +4,7 @@
     require_once 'core/init.php';
     include 'includes/overall/m_header.php';
 
-    $sql = "SELECT * FROM  products WHERE archived != 1 AND type = 'Bed'";
+    $sql = "SELECT * FROM products WHERE archived != 1 AND type = 'Mattress'";
     $result = $conn->query($sql);
 ?>
     <div class="jumbotron">
@@ -18,14 +18,13 @@
     
     <section id="beds">
       <div class="container">
-        <div class="col-md-12">
-          <h2 class="text-center">Beds</h2>
+       <div class="col-md-12">
+          <h2 class="text-center">Mattresses</h2>
           <?php while ($pro = $result->fetch_assoc()) : ?>
           <div class="col-md-3 col-sm-3 col-xs-12">
             <img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">
             <h4 class="text-center"><?= $pro['title']; ?></h4>
-            <h4 class="text-center"><b><?=(($pro['storage'] == 0)?'without Drawers':'with Drawers');?></b></h4>
-            <h4 class="text-center"><?= $pro['size']; ?> Bed</h4>
+            <h4 class="text-center"><?= $pro['size']; ?> Mattress</h4>
             <div class="content text-center">
               <!-- <p class="list-price text-danger">£<?= $pro['price']; ?></p> -->
               <h3 style="color: green;">Price: £<?= $pro['our_price']; ?></h3>
@@ -34,6 +33,7 @@
       </div>
       <?php endwhile; ?>
         </div>
+ 
       </div>
     </section>
     <?php include 'includes/overall/m_footer.php'; ?>

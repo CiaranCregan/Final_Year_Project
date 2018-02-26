@@ -128,7 +128,7 @@
 				<?php } else {
 
 				// grabs all products from within the products table
-				$sql3 = "SELECT * FROM products WHERE archived = 0 ORDER BY title";
+				$sql3 = "SELECT * FROM products WHERE archived = 0 ORDER BY type DESC";
 				$query3 = $conn->query($sql3);
 
 					if (isset($_GET['featured'])) {
@@ -182,6 +182,7 @@
 									<th>Size</th>
 									<th>Storage</th>
 									<th>Stock Level</th>
+									<th>Type</th>
 									<th>Featured</th>
 									<th>Sold</th>
 									<th>Delete Product</th>
@@ -207,6 +208,7 @@
 										<td><?= $product['size']; ?></td>
 										<td><?= (($product['storage'] == 0)?'None':'Yes');?></td>
 										<td><?= $product['stock']; ?></td>
+										<td><?= $product['type']; ?></td>
 										<td class="<?= (($product['featured'] == 1)?'success':'danger'); ?>">
 										<a class="btn btn-xs btn-default" href="products.php?featured=<?=(($product['featured'] == 0)?'1':'0');?>&id=<?=$product['id'];?>">
 											<span class="glyphicon glyphicon-<?= (($product['featured'] == 1)?'minus':'plus'); ?>"></span>

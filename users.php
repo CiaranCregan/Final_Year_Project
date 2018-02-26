@@ -4,7 +4,7 @@ require_once 'core/init.php';
 if (!loggedin()) {
 	error_redirect('login.php');
 }
-if (!employee_access('employee')) {
+if (!employee_access('admin')) {
 	error_redirect('dashboard.php');
 } 
 include '/includes/overall/a_header.php'; 
