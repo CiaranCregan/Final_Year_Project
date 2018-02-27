@@ -12,7 +12,7 @@
 	$orderInfo = $result->fetch_assoc();
 	$orderItems = json_decode($orderInfo['items'], true);
 
-	$conn->query("UPDATE payments SET viewed = 1 WHERE cart_id = '$order_id'");
+	// $conn->query("UPDATE payments SET viewed = 1 WHERE cart_id = '$order_id'");
 
 	// // creating the brand info by using the id from within the products table 
 	// $brand_id = $products_info['brand'];
@@ -47,7 +47,8 @@
 					            ?>
 					            <tr class="text-center">
 					              <td><img src="<?= $orders['image'];?>" style="width:200px;height:200px;"></td>
-					              <td><h4>Product Name:</h4> <br><?= $orders['title'];?></td>
+					              <td><h4>Product Name:</h4> <br><?= $orders['title'];?></td>#
+					              <td><h4>Product Size:</h4> <br><?= $orders['size'];?></td>
 					              <td><h4>Quantity:</h4> <br><?=$order['quantity'];?></td>
 					              <td><h4>Storage:</h4> <br><?= (($orders['storage'] == 0)?'None':$order['side'] . ' x2');?></td>
 					              <td><h4>Colour:</h4> <br><?= $order['color'];?></td>
@@ -73,6 +74,7 @@
 		setTimeout(function(){
 			jQuery('#order').remove();
 		},500);
+		location.reload();
 	}
 </script>
 <?php echo ob_get_clean(); ?>

@@ -11,15 +11,17 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-folder-open"></i></h1>
-						<h3>65</h3>
-						<a href="orders.php" class="btn btn-default">View Orders</a>
+						<h3>Total New Orders: <br><?=newOrders();?></h3>
+						<a href="orders.php" class="btn btn-default">View New Orders</a>
+						<p>(Order Amount: <?=totalAmountOfOrders();?>)</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="well text-center">
-						<h1><i class="fa fa-user"></i></h1>
-						<h3>12</h3>
-						<a href="users.php" class="btn btn-default">View Users</a>
+						<h1><i class="fa fa-credit-card"></i></h1>
+						<h3>Todays Amount: £<?=totalSpendToday();?></h3>
+						<a href="users.php" class="btn btn-default">View Revenue</a>
+						<p>(Order Amount: £<?=totalSpendAmount();?>)</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">

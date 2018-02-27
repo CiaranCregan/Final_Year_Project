@@ -44,6 +44,7 @@ if ($shopping_cart_id != '') {
 		// when checking the avialable add in the if statement here
 		$new_cart_items[] = $an_item;
 	}
+	// check and see if the quanitity being entered isnt greater than the quantity within the DB related to that product
 	if ($matched_items != 1) {
 		$new_cart_items = array_merge($added_items,$cart_items);
 	}

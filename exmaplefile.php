@@ -12,4 +12,4 @@ echo $password_hashed . '<br>';
 
 echo dirname($_SERVER['PHP_SELF']);
 
-echo date('Y-m-d H:i:s');
+echo date('Y-m-d');

@@ -108,3 +108,37 @@ function employee_access($role = ''){
 function error_redirect($url = ''){
 	header("Location: " . $url);
 }
+
+function totalAmountOfOrders(){
+	global $conn;
+	$sql = "SELECT COUNT(*) AS count FROM payments";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo $row['count'];
+}
+
+function totalSpendAmount(){
+	global $conn;
+	$date = date('Y-m-d');
+	$sql = "SELECT SUM(total) AS total FROM payments";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo $row['total'];
+}
+
+function newOrders(){
+	global $conn;
+	$sql = "SELECT COUNT(*) AS count FROM payments WHERE viewed = 0";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo $row['count'];
+}
+
+function totalSpendToday(){
+	global $conn;
+	$date = date('Y-m-d');
+	$sql = "SELECT SUM(total) AS total FROM payments WHERE payment_date = '$date'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo $row['total'];
+}
