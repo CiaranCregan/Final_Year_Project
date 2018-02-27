@@ -160,6 +160,31 @@
 				$sql3 = "SELECT * FROM products WHERE archived = 0 ORDER BY type DESC";
 				$query3 = $conn->query($sql3);
 
+				// products per page = 10
+				$products_per_page = 8;
+
+				// number of rows of products (i.e. 88)
+				$paginationResult = $conn->query($sql3);
+				$paginationRows = $paginationResult->num_rows;
+
+				// total pages according to the products per page
+				$paginationPages = ceil($paginationRows/$products_per_page);
+
+				// page number user is currently on
+				if (!isset($_GET['pn'])) {
+				 	$page = 1;
+				} else {
+					$page = $_GET['pn'];
+				}
+
+				// LIMIT of records per page and products per page
+				$limit = ($page-1)*$products_per_page;
+
+				// $pageNumber = ($page-1)*$products_per_page;
+				// query DB to get products using the LIMIT set up above
+				$limitQuery = "SELECT * FROM products WHERE archived = 0 LIMIT " . $limit . ", " . $products_per_page;
+				$limitResult = $conn->query($limitQuery); 
+
 					if (isset($_GET['featured'])) {
 						// checks if the get has been set
 
@@ -198,7 +223,7 @@
 				<div class="col-md-9">
 					<div class="panel panel-default">
 						<div id="m-color" class="panel-heading">
-						   <h3 class="panel-title">All Products</h3>
+						   <h3 class="panel-title">All Products || Total Rows: <?=$paginationRows;?> || Total Pages: <?=$paginationPages;?></h3>
 						</div>
 						<div class="panel-body table-responsive">
 							<a href="archived.php" id="products-margin" class="btn btn-danger <?= (($row['count'] == 0)?'disabled':'') ;?>"><?= (($row['count'] == 0)?''.$row['count'].' Deleted Products':''. $row['count'] .' Deleted Products, View Now') ?> </a>
@@ -218,7 +243,7 @@
 									<th>Delete Product</th>
 								</thead>
 								<tbody>
-									<?php while($product = $query3->fetch_assoc()): 
+									<?php while($product = $limitResult->fetch_assoc()): 
 									// querying the db to find out the products brand name
 										$brandID = $product['brand'];
 										$sql5 = "SELECT * FROM brands WHERE id = '$brandID'";
@@ -243,7 +268,7 @@
 										<a class="btn btn-xs btn-default" href="products.php?featured=<?=(($product['featured'] == 0)?'1':'0');?>&id=<?=$product['id'];?>">
 											<span class="glyphicon glyphicon-<?= (($product['featured'] == 1)?'minus':'plus'); ?>"></span>
 										</a>
-										 <?= (($product['featured'] == 1)?'Featured Product':' Feature Product'); ?>
+										 <?= (($product['featured'] == 1)?'Featured':' Feature'); ?>
 										</td>
 										<td>0</td>
 										<td>
@@ -254,6 +279,25 @@
 									<?php endwhile ;?>
 								</tbody>
 							</table>
+							<nav aria-label="Page navigation" class="text-center">
+							  <ul class="pagination">
+							    <li>
+							      <a href="#" aria-label="Previous">
+							        <span aria-hidden="true">&laquo;</span>
+							      </a>
+							    </li>
+							    	<?php 
+										for ($page=1;$page<=$paginationPages;$page++) {
+										 	echo '<li><a href="?pn=' . $page . '"> ' . $page . ' </a></li>';
+										}
+									?>
+							    <li>
+							      <a href="#" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+							  </ul>
+							</nav>
 						</div>
 					</div>
 				</div>
