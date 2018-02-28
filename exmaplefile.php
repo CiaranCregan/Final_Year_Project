@@ -52,3 +52,12 @@ require_once 'core/init.php';
 				//  for ($page=1;$page<=$pPages;$page++) {
 				//  	echo '<a href="?pn=' . $page . '"> ' . $page . ' </a>';
 				//  } 
+
+
+$query = "SELECT SUM(total) AS Amount FROM payments WHERE payment_date BETWEEN '2018/01/01' AND '2018/01/31'";
+$result = $conn->query($query);
+// var_dump($result);die();
+$row = $result->fetch_assoc();
+
+
+echo $row['Amount'];
