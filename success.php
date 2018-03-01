@@ -5,6 +5,8 @@
 	// See your keys here: https://dashboard.stripe.com/account/apikeys
 	\Stripe\Stripe::setApiKey(SECRET_KEY);
 
+
+
 	// Token is created using Checkout or Elements!
 	// Get the payment token ID submitted by the form:
 	$token = $_POST['stripeToken'];
@@ -27,6 +29,25 @@
 		"Fullname" => $fullname,
 		"Address" => $address,
 	);
+
+	$sql = "SELECT * FROM shopping_cart WHERE id = '$cart_id'";
+	$result = $conn->query($sql);
+	$items = $result->fetch_assoc();
+	$items_json = json_decode($items['items'], true);
+
+	foreach ($items_json as $item) {
+		$id = $item['id'];
+		$quantity = $item['quantity'];
+		$query = "SELECT * FROM products where id = '$id'";
+		$result = $conn->query($query);
+		$row = $result->fetch_assoc();
+		$DBquantity = $row['stock'];
+		$DBsold = $row['sold'];
+		$newQuantity = $DBquantity - $quantity;
+		$newSold = $DBsold + $quantity;
+		$sqlUpdate = "UPDATE products SET stock = '$newQuantity', sold = '$newSold' WHERE id = '$id'";
+		$conn->query($sqlUpdate);
+	}
 
 	// echo $item_quantity;
 

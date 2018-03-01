@@ -14,8 +14,8 @@ include 'includes/overall/a_header.php';
 // echo dirname($_SERVER['PHP_SELF']);
 
 // echo date('Y-m-d');
-$yesterday = date('d.m.Y',strtotime("-1 days"));
+// $yesterday = date('d.m.Y',strtotime("-1 days"));
 
-echo $yesterday;
+// echo $yesterday;
 
 ?>
