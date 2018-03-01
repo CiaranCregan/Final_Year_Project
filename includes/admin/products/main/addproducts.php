@@ -270,7 +270,7 @@
 										</a>
 										 <?= (($product['featured'] == 1)?'Featured':' Feature'); ?>
 										</td>
-										<td>0</td>
+										<td><?= $product['sold']; ?></td>
 										<td>
 											<a href="products.php?delete=<?= $product['id']; ?>" class="btn btn-xs btn-default">
 											   	<span class="glyphicon glyphicon-remove"></span>
