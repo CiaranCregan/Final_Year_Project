@@ -18,5 +18,3 @@ include '/includes/overall/a_header.php';
 		include 'includes/admin/main.php';
 		include 'includes/overall/a_footer.php'
 		?>
-	</div>
-</div>

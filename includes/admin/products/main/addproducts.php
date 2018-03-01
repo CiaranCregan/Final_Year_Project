@@ -262,7 +262,7 @@
 										<td><?= $brandname; ?></td>
 										<td><?= $product['size']; ?></td>
 										<td><?= (($product['storage'] == 0)?'None':'Yes');?></td>
-										<td><?= $product['stock']; ?></td>
+										<td class="<?=(($product['stock'] < 20)?'danger':'');?>"><?= $product['stock']; ?></td>
 										<td><?= $product['type']; ?></td>
 										<td class="<?= (($product['featured'] == 1)?'success':'danger'); ?>">
 										<a class="btn btn-xs btn-default" href="products.php?featured=<?=(($product['featured'] == 0)?'1':'0');?>&id=<?=$product['id'];?>">

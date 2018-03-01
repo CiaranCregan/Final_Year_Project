@@ -108,13 +108,13 @@ function employee_access($role = ''){
 function error_redirect($url = ''){
 	header("Location: " . $url);
 }
-
+// ANALYTICS
 function totalAmountOfOrders(){
 	global $conn;
 	$sql = "SELECT COUNT(*) AS count FROM payments";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	echo $row['count'];
+	return $row['count'];
 }
 
 function totalSpendAmount(){
@@ -123,7 +123,7 @@ function totalSpendAmount(){
 	$sql = "SELECT SUM(total) AS total FROM payments";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	echo $row['total'];
+	return $row['total'];
 }
 
 function newOrders(){
@@ -131,7 +131,16 @@ function newOrders(){
 	$sql = "SELECT COUNT(*) AS count FROM payments WHERE viewed = 0";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	echo $row['count'];
+	return $row['count'];
+}
+
+function totalSpendYesterday(){
+	global $conn;
+	$date = date('d.m.Y',strtotime("-1 days"));
+	$sql = "SELECT SUM(total) AS total FROM payments WHERE payment_date = '2018/02/27'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	return $row['total'];
 }
 
 function totalSpendToday(){
@@ -140,5 +149,32 @@ function totalSpendToday(){
 	$sql = "SELECT SUM(total) AS total FROM payments WHERE payment_date = '$date'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	echo $row['total'];
+	return $row['total'];
+}
+
+function overall() {
+	global $conn;
+	$query = "SELECT COUNT(*) As Overall FROM shopping_cart";
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$total = $row['Overall'];
+	return $total;
+}
+
+function purchased() {
+	global $conn;
+	$query = "SELECT COUNT(*) As Purchased FROM shopping_cart WHERE purchased = 1";
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$total = $row['Purchased'];
+	return $total;	
+}
+
+function failed() {
+	global $conn;
+	$query = "SELECT COUNT(*) As failed FROM shopping_cart WHERE purchased = 0";
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$total = $row['failed'];
+	return $total;	
 }

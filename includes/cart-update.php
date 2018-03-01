@@ -42,8 +42,6 @@
 	}
 
 	if (empty($updated_items)) {
-		$Dsql = "DELETE FROM shopping_cart WHERE id = '$shopping_cart_id'";
-		$conn->query($Dsql);
 		setcookie(SHOPPING_CART_COOKIE,'',1,'/',false);
 	}
 ?>
