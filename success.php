@@ -64,7 +64,7 @@
  		$query = "UPDATE shopping_cart SET purchased = 1 WHERE id = '$cart_id'";
  		// query for grabbing the products sold area
  		$conn->query($query);
- 		$date = date('Y-m-d H:i:s');
+ 		$date = date('Y-m-d');
  		// update the sold and the quantity in the DB according to the products
  		$query2 = "INSERT INTO payments (user_id, payment_id, cart_id, user_name, email, address, county, postcode, total, description, payment_date) VALUES ('$user_id','$charge->id', '$shopping_cart_id', '$name', '$email', '$address', '$county', '$postcode', '$before_total', '$item_quantity', '$date')";
  		$conn->query($query2);

@@ -136,11 +136,11 @@ function newOrders(){
 
 function totalSpendYesterday(){
 	global $conn;
-	$date = date('d.m.Y',strtotime("-1 days"));
-	$sql = "SELECT SUM(total) AS total FROM payments WHERE payment_date = '2018/02/27'";
+	$date = date('Y-m-d',strtotime("-1 days"));
+	$sql = "SELECT SUM(total) AS Total FROM payments WHERE payment_date = '$date'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	return $row['total'];
+	return $row['Total'];
 }
 
 function totalSpendToday(){

@@ -1,5 +1,5 @@
 <?php 
-	$query = "SELECT * FROM payments WHERE viewed = 0 ORDER BY payment_date DESC";
+	$query = "SELECT * FROM payments WHERE viewed = 0 ORDER BY id DESC";
 	$result = $conn->query($query);
 ?>
 

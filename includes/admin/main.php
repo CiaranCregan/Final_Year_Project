@@ -29,7 +29,7 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-credit-card"></i></h1>
-						<h3>Todays Amount: <br> £<?=totalSpendToday();?> (<small style="color:<?=(($total > 0)?'green':'red');?>"><?=(($total > 0)?'<i class="fa fa-sort-up" style="color:green"></i> '.$total:'<i class="fa fa-sort-down" style="color:red"></i> '.$total);?></small>)</h3>
+						<h3>Todays Amount: <br> £<?=totalSpendToday();?> (<small style="color:<?=(($total > 0)?'green':'red');?>"><?=(($total > 0)?'<i class="fa fa-sort-up" style="color:green"></i> '.$total.'%':'<i class="fa fa-sort-down" style="color:red"></i> '.$total.'%');?></small>)</h3>
 						<a href="users.php" class="btn btn-default">View Revenue</a>
 						<p>(Order Amount: £<?=totalSpendAmount();?>)</p>
 					</div>
