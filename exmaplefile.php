@@ -1,6 +1,6 @@
 <?php 
 require_once 'core/init.php';
-include 'includes/overall/a_header.php';
+// include 'includes/overall/a_header.php';
 // $password = 'shoppingcartcookie';
 
 // $password_hashed = password_hash($password, PASSWORD_DEFAULT);
@@ -18,4 +18,8 @@ include 'includes/overall/a_header.php';
 
 // echo $yesterday;
 
+$query = "SELECT COUNT(*) As total FROM shopping_cart WHERE purchased = 1";
+$result = $conn->query($query);
+$row = $result->fetch_assoc();
+ echo $row['total'];
 ?>

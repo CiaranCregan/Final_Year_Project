@@ -10,6 +10,9 @@
 ?>
 
 <div class="container">
+	<a href="profile.php" class="btn btn-default" style="margin-top: 20px;"> << Return to My Profile</a>
+  	<h2 class="primary-color">Welcome, <?= $name;?></h2>
+  	<hr>
 	<section id="history">
 		<div class="col-md-12">
 			<div class="panel panel-default">
