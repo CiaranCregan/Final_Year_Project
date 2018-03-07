@@ -2,6 +2,8 @@
 	$user_query = "SELECT * FROM users WHERE roles != 'user'";
 	$result = $conn->query($user_query);
 
+	$totalAmountToday = totalSpendToday();
+
 	$difference = totalSpendToday() - totalSpendYesterday();
 
 	$total = round(($difference / totalSpendYesterday())*100, 2);
@@ -11,6 +13,8 @@
 	$failed = failed();
 	$success_per = round(($success / $overall)*100);
 	$failed_per = round(($failed / $overall)*100);
+
+	$bestSellingProducts = topSoldProducts();
 ?>
 <section id="sidebar">
 		<div class="container-fluid">
@@ -29,7 +33,13 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h1><i class="fa fa-credit-card"></i></h1>
-						<h3>Todays Amount: <br> £<?=totalSpendToday();?> (<small style="color:<?=(($total > 0)?'green':'red');?>"><?=(($total > 0)?'<i class="fa fa-sort-up" style="color:green"></i> '.$total.'%':'<i class="fa fa-sort-down" style="color:red"></i> '.$total.'%');?></small>)</h3>
+						<h3>Todays Amount: <br> 
+							<?php if ($totalAmountToday == '') : ?>
+								£0.00 (<small style="color:red;"><i class="fa fa-sort-down" style="color:red"></i>100%</small>)
+							<?php elseif ($totalAmountToday !== '') : ?>
+								£<?=totalSpendToday();?> (<small style="color:<?=(($total > 0)?'green':'red');?>"><?=(($total > 0)?'<i class="fa fa-sort-up" style="color:green"></i> '.$total.'%':'<i class="fa fa-sort-down" style="color:red"></i> '.$total.'%');?></small>)
+							<?php endif; ?>
+						</h3>
 						<a href="users.php" class="btn btn-default">View Revenue</a>
 						<p>(Order Amount: £<?=totalSpendAmount();?>)</p>
 					</div>
@@ -53,15 +63,16 @@
 				</div>
 				<div class="col-md-6">
 					<div class="well">
-						<h4>Stats <div class="pull-right"><i class="fa fa-signal"></i></div></h4>
+						<h4>Top 5 Best Selling Products <div class="pull-right"><i class="fa fa-signal"></i></div></h4>
 						<hr>
-						<canvas id="myChart"></canvas>
+						<?php if ($bestSellingProducts == '') : ?>
+							<h4>No Products Have Been Purchased</h4>
+						<?php elseif ($bestSellingProducts !== '') : ?>
+							<?= topSoldProducts() ;?>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="well">
-						
-					</div>
 				</div>
 			</div>
 			<div class="col-md-3"></div>

@@ -178,3 +178,38 @@ function failed() {
 	$total = $row['failed'];
 	return $total;	
 }
+
+function topSoldProducts(){
+	global $conn;
+	$sql = "SELECT * FROM products WHERE sold > 0 ORDER BY sold desc LIMIT 5";
+	$result = $conn->query($sql);
+	$value = '';
+
+	$value .= '
+		<table class="table">
+	  		<th>id</th>
+	  		<th>Title</th>
+	  		<th>Sold</th>
+	  		<th>Price</th>
+	  		<th>Amount Made</th>
+	';
+	while ($row = $result->fetch_assoc()) {
+		$id = $row['id'];
+		$title = $row['title'];
+		$sold = $row['sold'];
+		$our_price = $row['our_price'];
+		$soldAmount = $sold * $our_price;
+		$value .= '
+			<tr>
+				<td>'.$id.'</td>
+				<td>'.$title.'</td>
+				<td>'.$sold.'</td>
+				<td>£'.$our_price.'.00</td>
+				<td>£'.$soldAmount.'.00</td>
+			</tr>
+		';
+	}
+	$value .= '</table>';
+
+	return $value;
+}
