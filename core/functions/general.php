@@ -186,6 +186,7 @@ function topSoldProducts(){
 	$value = '';
 
 	$value .= '
+		<div class="table-responsive">
 		<table class="table">
 	  		<th>id</th>
 	  		<th>Title</th>
@@ -209,7 +210,7 @@ function topSoldProducts(){
 			</tr>
 		';
 	}
-	$value .= '</table>';
+	$value .= '</table></div>';
 
 	return $value;
 }

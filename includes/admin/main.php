@@ -2,19 +2,15 @@
 	$user_query = "SELECT * FROM users WHERE roles != 'user'";
 	$result = $conn->query($user_query);
 
-	$totalAmountToday = totalSpendToday();
+	$totalAmountToday = totalSpendToday(); // todays spend
 
-	$difference = totalSpendToday() - totalSpendYesterday();
+	$overall = overall(); // how many shopping carts
+	$success = purchased(); // carts that have been purchased
+	$failed = failed(); // cartd that have failed to be purchased
+	$success_per = round(($success / $overall)*100); // percentage of successful over overall
+	$failed_per = round(($failed / $overall)*100); // percentage of failed over overall
 
-	$total = round(($difference / totalSpendYesterday())*100, 2);
-
-	$overall = overall();
-	$success = purchased();
-	$failed = failed();
-	$success_per = round(($success / $overall)*100);
-	$failed_per = round(($failed / $overall)*100);
-
-	$bestSellingProducts = topSoldProducts();
+	$bestSellingProducts = topSoldProducts(); // best selling products by sold quantity
 ?>
 <section id="sidebar">
 		<div class="container-fluid">
@@ -35,9 +31,13 @@
 						<h1><i class="fa fa-credit-card"></i></h1>
 						<h3>Todays Amount: <br> 
 							<?php if ($totalAmountToday == '') : ?>
-								£0.00 (<small style="color:red;"><i class="fa fa-sort-down" style="color:red"></i>100%</small>)
+								£0.00
 							<?php elseif ($totalAmountToday !== '') : ?>
-								£<?=totalSpendToday();?> (<small style="color:<?=(($total > 0)?'green':'red');?>"><?=(($total > 0)?'<i class="fa fa-sort-up" style="color:green"></i> '.$total.'%':'<i class="fa fa-sort-down" style="color:red"></i> '.$total.'%');?></small>)
+								<?php
+									$difference = totalSpendToday() - totalSpendYesterday();
+									$total = round(($difference / $totalAmountToday)*100, 2);	
+									echo '£'.$totalAmountToday.'(<small style="color:'.(($total > 0)?'green':'red').'">'.(($total > 0)?"<i class='fa fa-sort-up' style='color:green'></i>".$total.'%':"<i class='fa fa-sort-down' style='color:red'></i> ".$total.'%').'</small>)';					
+								?>
 							<?php endif; ?>
 						</h3>
 						<a href="users.php" class="btn btn-default">View Revenue</a>
@@ -61,7 +61,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="well">
 						<h4>Top 5 Best Selling Products <div class="pull-right"><i class="fa fa-signal"></i></div></h4>
 						<hr>
@@ -72,7 +72,7 @@
 						<?php endif; ?>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-xs-12 col-sm-6 col-md-6">
 				</div>
 			</div>
 			<div class="col-md-3"></div>
