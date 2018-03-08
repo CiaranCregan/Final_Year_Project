@@ -108,6 +108,7 @@ function employee_access($role = ''){
 function error_redirect($url = ''){
 	header("Location: " . $url);
 }
+
 // ANALYTICS
 function totalAmountOfOrders(){
 	global $conn;
