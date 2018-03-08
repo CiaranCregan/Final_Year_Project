@@ -11,14 +11,6 @@
 	$result = $conn->query($query);
 	$orderInfo = $result->fetch_assoc();
 	$orderItems = json_decode($orderInfo['items'], true);
-
-	// $conn->query("UPDATE payments SET viewed = 1 WHERE cart_id = '$order_id'");
-
-	// // creating the brand info by using the id from within the products table 
-	// $brand_id = $products_info['brand'];
-	// $brand_sql = "SELECT brand_name FROM brands WHERE id = '$brand_id'";
-	// $brand_query_result = $conn->query($brand_sql);
-	// $brand_id_info = $brand_query_result->fetch_assoc();
 ?>
 <!-- MODAL BOX START -->
 <?php ob_start(); ?>

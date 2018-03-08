@@ -31,8 +31,8 @@
               <h3 style="color: green;">Price: £<?= $pro['our_price']; ?></h3>
             </div>
             <button type="button" class="btn btn-main btn-block" onclick="featuredetails(<?= $pro['id']; ?>)">View product</button>
-      </div>
-      <?php endwhile; ?>
+          </div>
+          <?php endwhile; ?>
         </div>
       </div>
     </section>

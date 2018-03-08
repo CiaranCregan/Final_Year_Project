@@ -1,6 +1,6 @@
 	<?php
 
-	$sql = "SELECT * FROM  products WHERE featured = 1";
+	$sql = "SELECT * FROM products WHERE featured = 1";
 	$result = $conn->query($sql);
 
 	while ($pro = $result->fetch_assoc()) : ?>

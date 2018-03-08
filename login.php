@@ -2,8 +2,6 @@
 		include 'includes/overall/m_header.php';
 		require_once 'core/init.php';
 
-		//$path = $_POST['path'];
-
 		if (postInputExists()) {
 			if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION['token']) {
 				$username = escape($_POST['username']);
@@ -24,10 +22,10 @@
 				$count = $result->num_rows;
 
 				if ($count < 1) {
-				 	$errors[] = $username . ' doesnt seem match. Please try again.';
+				 	$errors[] = 'That password and username combination doesnt seem to match. Please try again.';
 				 } else {
 				 	if (!password_verify($password, $user['password'])) {	
-						$errors[] = 'That password and username combination doesnt seem match. Please try again.';
+						$errors[] = 'That password and username combination doesnt seem to match. Please try again.';
 					}
 				 }
 			}
