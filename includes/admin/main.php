@@ -64,7 +64,6 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="well">
 						<h4>Top 5 Best Selling Products <div class="pull-right"><i class="fa fa-signal"></i></div></h4>
-						<hr>
 						<?php if ($bestSellingProducts == '') : ?>
 							<h4>No Products Have Been Purchased</h4>
 						<?php elseif ($bestSellingProducts !== '') : ?>

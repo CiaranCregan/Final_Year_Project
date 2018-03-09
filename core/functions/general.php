@@ -79,6 +79,18 @@ function errors($errors){
 function escape($string) {
 	return htmlentities($string, ENT_QUOTES, 'UTF-8');
 }
+// Product Views
+function updateProductViews($id){
+	global $conn;
+	$productId = $id;
+	$selectQuery = "SELECT * FROM products WHERE id = '$productId'";
+	$result = $conn->query($selectQuery);
+	$product = $result->fetch_assoc();
+	$productViews = $product['viewed'];
+	$productUpdateViews = $productViews + 1;
+	$updateQuery = "UPDATE products SET viewed = '$productUpdateViews' WHERE id = '$productId'";
+	$conn->query($updateQuery);
+}
 
 // login functions
 function login($user_id) {
@@ -189,25 +201,28 @@ function topSoldProducts(){
 	$value .= '
 		<div class="table-responsive">
 		<table class="table">
-	  		<th>id</th>
+	  		<th>Product ID Number</th>
 	  		<th>Title</th>
+	  		<th>Size</th>
 	  		<th>Sold</th>
-	  		<th>Price</th>
-	  		<th>Amount Made</th>
+	  		<th>Sold Amount</th>
+	  		<th>Featured</th>
 	';
 	while ($row = $result->fetch_assoc()) {
 		$id = $row['id'];
 		$title = $row['title'];
 		$sold = $row['sold'];
-		$our_price = $row['our_price'];
-		$soldAmount = $sold * $our_price;
+		$size = $row['size'];
+		$soldAmount = $row['our_price'] * $sold;
+		$featured = $row['featured'];
 		$value .= '
 			<tr>
 				<td>'.$id.'</td>
 				<td>'.$title.'</td>
+				<td>'.$size.'</td>
 				<td>'.$sold.'</td>
-				<td>£'.$our_price.'.00</td>
 				<td>£'.$soldAmount.'.00</td>
+				<td class="'.(($featured == 0)?"danger":"success").'">'.(($featured > 0)?"Yes":"No").'</td>
 			</tr>
 		';
 	}

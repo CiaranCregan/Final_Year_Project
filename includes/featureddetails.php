@@ -6,6 +6,9 @@
 	$feat_id = $_POST['id'];
 	$feat_id = (int)$feat_id;
 
+	// update product viewed function
+	updateProductViews($feat_id);
+
 	// creating the product info by using the id from the best seller section and then assigning it to $products_info 
 	$product_sql = "SELECT * FROM products WHERE id = '$feat_id'";
 	$product_query_result = $conn->query($product_sql);
