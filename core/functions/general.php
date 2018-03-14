@@ -194,7 +194,7 @@ function failed() {
 
 function topSoldProducts(){
 	global $conn;
-	$sql = "SELECT * FROM products WHERE sold > 0 ORDER BY sold desc LIMIT 5";
+	$sql = "SELECT * FROM products WHERE sold > 0 ORDER BY sold desc LIMIT 10";
 	$result = $conn->query($sql);
 	$value = '';
 
@@ -230,3 +230,58 @@ function topSoldProducts(){
 
 	return $value;
 }
+
+// function topSoldProductsTest(){
+// 	global $conn;
+// 	$sql = "SELECT * FROM products WHERE sold >= 0 ORDER BY sold desc LIMIT 5";
+// 	$result = $conn->query($sql);
+// 	$title = array();
+// 	$sold = array();
+// 	$value = '';
+
+// 	$value .= '
+// 		var ctx = document.getElementById("myChart").getContext("2d");
+// 		var chart = new Chart(ctx, {
+// 		    // The type of chart we want to create
+// 		    type: "line",
+
+// 		    // The data for our dataset
+// 		    data: {
+// 	';
+// 	while ($row = $result->fetch_assoc()) {
+// 		array_push($title, $row['title']);
+// 		array_push($sold, $row['sold']);
+// 	}
+// 	$value .= '
+// 			labels: ["'.$title[0].'","'.$title[1].'","'.$title[2].'","'.$title[3].'","'.$title[4].'"],
+// 	        datasets: [{
+// 	            label: "Products Sold",
+// 	            backgroundColor: "rgb(255, 99, 132)",
+// 	            borderColor: "rgb(255, 99, 132)",
+// 	            data: ['.$sold[0].','.$sold[1].','.$sold[2].','.$sold[3].','.$sold[4].'],
+// 	            fill: false,
+// 	        }]
+// 	';
+// 	$value .= '
+// 		},
+// 		    // Configuration options go here
+// 		    options: {
+// 		    	responsive: true,
+// 		    	scales: {
+// 		    		xAxes: [{
+// 						ticks: {
+// 							min: 0
+// 						}
+// 					}],
+//         			yAxes: [{
+//             			ticks: {
+//                 			min: 0
+//             			}	
+//         			}]
+//     			}
+// 		    }
+// 		});
+// 		';
+
+// 	return $value;
+// }

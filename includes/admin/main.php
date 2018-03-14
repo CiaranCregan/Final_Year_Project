@@ -71,7 +71,7 @@
 						<?php endif; ?>
 					</div>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
+				<div class="col-xs-12 col-sm-8 col-md-8">
 				</div>
 			</div>
 			<div class="col-md-3"></div>
