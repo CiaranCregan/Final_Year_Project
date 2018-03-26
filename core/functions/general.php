@@ -122,6 +122,31 @@ function error_redirect($url = ''){
 }
 
 // ANALYTICS
+
+function newOrders(){
+	global $conn;
+	$sql = "SELECT COUNT(*) AS count FROM payments WHERE status = 0";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	return $row['count'];
+}
+
+function viewedOrders(){
+	global $conn;
+	$sql = "SELECT COUNT(*) AS count FROM payments WHERE status = 1";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	return $row['count'];
+}
+
+function deliveredOrders(){
+	global $conn;
+	$sql = "SELECT COUNT(*) AS count FROM payments WHERE delivered = 1";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	return $row['count'];
+}
+
 function totalAmountOfOrders(){
 	global $conn;
 	$sql = "SELECT COUNT(*) AS count FROM payments";
@@ -137,14 +162,6 @@ function totalSpendAmount(){
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	return $row['total'];
-}
-
-function newOrders(){
-	global $conn;
-	$sql = "SELECT COUNT(*) AS count FROM payments WHERE viewed = 0";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	return $row['count'];
 }
 
 function totalSpendYesterday(){

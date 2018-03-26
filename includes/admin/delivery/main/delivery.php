@@ -1,42 +1,32 @@
 <?php 
-	$query = "SELECT * FROM payments WHERE status = 0 ORDER BY id DESC";
+	$Today=date('y:m:d');
+	$query = "SELECT * FROM payments WHERE status = 1 AND delivery_date = '$Today'";
 	$result = $conn->query($query);
-	$deliveryDate = date('y:m:d', strtotime("+4 days"));
+	$deliveryDate = date('y:m:d', strtotime("+3 days"));
 
-	if (isset($_GET['addDelivery'])) {
-		$id = (int)$_GET['addDelivery'];
+	if (isset($_GET['complete'])) {
+		$id = (int)$_GET['complete'];
 
-		$conn->query("UPDATE payments SET status = 1, delivery_date = '$deliveryDate' WHERE id = '$id'");
+		$conn->query("UPDATE payments SET status = 2 WHERE id = '$id'");
+		$conn->query("UPDATE payments SET delivered = 1 WHERE id = '$id'");
 
-		header("Location: orders.php");
+		header("Location: delivery.php");
 
 	}
 ?>
 
 	
-		<div class="col-md-9">
+		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">New Orders</div>
+				<div class="panel-heading">Todays Deliveries</div>
 				<div class="panel-body">
-					<a href="porders.php" class="btn btn-success" style="margin-bottom: 10px;">View Processed Orders</a>
 					<div class="table-responsive">
 						<table class="table table-hover">
-						  <th>Order No.</th>
-						  <th>Cart No.</th>
-						  <th>Order Date</th>
-						  <th>Customer Name</th>
-						  <th>Email</th>
 						  <th>Address</th>
 						  <th>Description</th>
-						  <th>Total (£)</th>
 						  <th></th>
 						  <?php while ($order = $result->fetch_assoc()) : ?>
-						  <tr>
-						  	<td><?= $order['id']; ?></td>
-						  	<td><?= $order['cart_id']; ?></td>
-						  	<td><?= $order['payment_date']; ?></td>
-						  	<td><?= $order['user_name']; ?></td>
-						  	<td><?= $order['email']; ?></td>
+						  <tr class="">
 						  	<td>
 						  		<address>
 									<?= $order['address'] ;?><br> 
@@ -45,8 +35,7 @@
 								</address>
 							</td>
 						  	<td><?= $order['description']; ?></td>
-						  	<td>£<?= $order['total']; ?></td>
-						  	<td><button type="button" class="btn btn-default" onclick="orderdetails(<?= $order['cart_id']; ?>)">View Products</button><br><br><a href="orders.php?addDelivery=<?=$order['id'];?>" class="btn btn-default">Add to Delivery</a></td>
+						  	<td><button type="button" class="btn btn-default" onclick="orderdetails(<?= $order['cart_id']; ?>)">View Products</button><br><br><a href="delivery.php?complete=<?=$order['id'];?>" class="btn btn-default btn-success">Confirm Delivery</a></td>
 						  </tr>
 						  <?php endwhile; ?>
 						</table>

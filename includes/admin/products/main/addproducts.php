@@ -38,7 +38,7 @@
 					}
 
 					if (postInputExists()) {
-						if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION{'token'}) {
+						if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION['token']) {
 							$producterrors = ''; // setting up an empty array to store errors in for when they occur
 
 							// foreach loop that will run through all the posted variable to check for errors

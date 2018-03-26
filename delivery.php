@@ -13,7 +13,9 @@ include '/includes/overall/a_header.php';
 <div id="wrapper">
 	
 	<div id="main-wrapper">
-		<h2>Hello World</h2>
-	</div>
-
-</div>
+		<?php 
+		// include 'includes/admin/b_nav.php';
+		// include 'includes/admin/breadcrumb.php';
+		include 'includes/admin/delivery/main.php';
+		include 'includes/overall/a_footer.php'
+		?>

@@ -20,21 +20,17 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table table-hover">
-						  <th>Order No.</th>
-						  <th>Cart No.</th>
 						  <th>Order Date</th>
-						  <th>Customer Name</th>
 						  <th>Email</th>
 						  <th>Address</th>
 						  <th>Description</th>
 						  <th>Total (£)</th>
+						  <th>Status</th>
+						  <th>Delivery Date <br> <small class="text-center">(3-5 Working Days)</small></th>
 						  <th></th>
 						  <?php while ($order = $result->fetch_assoc()) : ?>
 						  <tr>
-						  	<td><?= $order['id']; ?></td>
-						  	<td><?= $order['cart_id']; ?></td>
 						  	<td><?= $order['payment_date']; ?></td>
-						  	<td><?= $order['user_name']; ?></td>
 						  	<td><?= $order['email']; ?></td>
 						  	<td>
 						  		<address>
@@ -45,7 +41,25 @@
 							</td>
 						  	<td><?= $order['description']; ?></td>
 						  	<td>£<?= $order['total']; ?></td>
-						  	<td><button type="button" class="btn btn-success" onclick="orderdetails(<?= $order['cart_id']; ?>)">View Products</button></td>
+						  	<td>
+						  	<?php if ($order['status'] == 0) {
+						  		echo "Processing";
+						  	} elseif ($order['status'] == 1){
+						  		echo "Processed";
+						  	} elseif ($order['status'] == 2){
+						  		echo "Delivered";
+						  	}?>
+						  	</td>
+						  	<td>
+						  	<?php if ($order['delivered'] == 1) {
+						  		echo $order['delivery_date'];
+						  	} elseif ($order['status'] == 1) {
+						  		echo "3-5 Working Days";
+						  	} else {
+						  		echo "TBC";
+						  	}?>
+						  	</td>
+						  	<td><button type="button" class="btn btn-success" onclick="customerOrderHistory(<?= $order['cart_id']; ?>)">View Products</button></td>
 						  </tr>
 						  <?php endwhile; ?>
 						</table>

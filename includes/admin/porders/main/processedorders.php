@@ -1,14 +1,14 @@
 <?php 
-	$query = "SELECT * FROM payments WHERE viewed = 1 ORDER BY payment_date DESC";
+	$query = "SELECT * FROM payments WHERE status = 1 ORDER BY payment_date DESC";
 	$result = $conn->query($query);
 ?>
 
 	
 		<div class="col-md-9">
 			<div class="panel panel-default">
-				<div class="panel-heading">Orders for Delivery</div>
+				<div class="panel-heading">Processed Orders</div>
 				<div class="panel-body">
-					<a href="orders.php" class="btn btn-success" style="margin-bottom: 10px;">View Orders</a>
+					<a href="orders.php" class="btn btn-success" style="margin-bottom: 10px;">View New Orders</a>
 					<div class="table-responsive">
 						<table class="table table-hover">
 						  <th>Order No.</th>
@@ -18,7 +18,7 @@
 						  <th>Address</th>
 						  <th>Description</th>
 						  <th>Total (£)</th>
-						  <th></th>
+						  <th>Delivery Date</th>
 						  <?php while ($order = $result->fetch_assoc()) : ?>
 						  <tr class="success">
 						  	<td><?= $order['id']; ?></td>
@@ -34,7 +34,7 @@
 							</td>
 						  	<td><?= $order['description']; ?></td>
 						  	<td>£<?= $order['total']; ?></td>
-						  	<td><a href="#" class="btn btn-default">Add to delivery </a></td>
+						  	<td><?=$order['delivery_date'];?></td>
 						  </tr>
 						  <?php endwhile; ?>
 						</table>

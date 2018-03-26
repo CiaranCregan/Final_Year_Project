@@ -147,7 +147,7 @@
 
   // CUSTOMER ORDER HISTORY JAVASCRIPT
   
-  function orderdetails(id){ // id = id of product
+  function customerOrderHistory(id){ // id = id of product
         // alert("Cart ID: " + id)
         var orderData = {"id" : id};
         $.ajax({

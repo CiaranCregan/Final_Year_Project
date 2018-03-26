@@ -21,7 +21,7 @@
 			<button class="close" type="button" aria-label="close" onclick="modalClose()">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<h4 class="modal-title text-center">Cart Number: <?= $orderInfo['id'];?></h4>
+			<h4 class="modal-title text-center">Cart Number: <?= $orderInfo['id'];?> | Hello Ciaran</h4>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
