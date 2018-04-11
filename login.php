@@ -28,6 +28,8 @@
 						$errors[] = 'That password and username combination doesnt seem to match. Please try again.';
 					}
 				 }
+			} else {
+				$errors[] = 'Something went wrong, Please try again';
 			}
 
 			if (!empty($errors)) {
@@ -47,6 +49,7 @@
 			<div class="row">
 				<h1>Please login</h1>
 				<h4>Sign in now to view your latest orders and have the ability to track them while on the go. We try our best to provide you with the best needs to make your shopping easier and more convient.</h4>
+				<?= $token;?>
 				<div class="col-md-6">
 					<div class="home">
 						<div class="item">

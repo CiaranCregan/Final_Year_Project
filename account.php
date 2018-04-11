@@ -55,6 +55,7 @@
             <div class="panel panel-default">
               <div id="m-color" class="panel-heading">
                  <h3 class="panel-title">Edit Customer Details</h3>
+                 '.$token.'
               </div>
               <div class="panel-body table-responsive">
 

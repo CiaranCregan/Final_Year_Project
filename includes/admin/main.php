@@ -21,7 +21,7 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<div class="well text-center">
 						<h3>Orders</h3>
-						<canvas id="orderChart" height="150"></canvas>
+						<canvas id="orderChart" height="200"></canvas>
 						<a href="orders.php" class="btn btn-default">View New Orders</a>
 						<p>(Order Amount: <?=totalAmountOfOrders();?>)</p>
 					</div>

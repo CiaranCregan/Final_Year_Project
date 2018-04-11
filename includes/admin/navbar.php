@@ -17,21 +17,42 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a></li>
-        <li><a href="brands.php">Brands</a></li>
-        <li><a href="products.php">Products</a></li>
-        <li><a href="users.php">Users</a></li>
-        <li><a href="archived.php">Archived</a></li>
+        <?php if (employee_access('employee') && !employee_access('admin') && !employee_access('driver')) {
+          echo '
+          <li><a href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a></li>
+          <li><a href="brands.php">Brands</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li><a href="archived.php">Archived</a></li>
+          ';
+        } elseif (employee_access('employee') && employee_access('driver')) {
+
+        } elseif (employee_access('employee') && employee_access('admin')) {
+          echo '
+          <li><a href="dashboard.php">Dashboard<span class="sr-only">(current)</span></a></li>
+          <li><a href="brands.php">Brands</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li><a href="users.php">Users</a></li>
+          <li><a href="archived.php">Archived</a></li>
+          ';
+        }
+        ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="delivery.php">Delivery</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="orders.php">View Orders</a></li>
-            <li><a href="porders.php">View Processed Orders</a></li>
-          </ul>
-        </li>
+        <?php 
+          if (employee_access('employee') && !employee_access('driver')) {
+            echo 
+            '
+            <li><a href="delivery.php">Delivery</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="orders.php">View Orders</a></li>
+                <li><a href="porders.php">View Processed Orders</a></li>
+              </ul>
+            </li>
+            ';
+          }
+        ?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome<b> <?= $name; ?></b> <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -55,7 +55,8 @@
 						if (!empty($producterrors)) {
 							echo product_errors($producterrors);
 						} else {
-							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', '$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
+							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', 'employee,$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
+							var_dump($sql2);die;
 
 							// when get has been set this update query will run instead of the query above
 							// the above query is for adding a product
@@ -154,6 +155,10 @@
 							</div>
 						</div>
 					</div>
+					<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+					<script type="text/javascript">
+						CKEDITOR.replace("editor1");
+					</script>
 				<?php } else {
 
 				// grabs all products from within the products table

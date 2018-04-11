@@ -34,6 +34,8 @@
 				if ($count > 0) {
 					$errors[] = "That username already exists, please try again";
 				}
+			} else {
+				$errors[] = 'Something went wrong, Please try again';
 			}
 
 			if (!empty($errors)) {
@@ -54,6 +56,7 @@
 		<div class="container">
 			<div class="row">
 				<h1>Register here</h1>
+				<?=$token;?>
 				<div class="col-md-6">
 					<div class="home">
 						<div class="item">

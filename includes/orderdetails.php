@@ -29,7 +29,7 @@
 			<button class="close" type="button" aria-label="close" onclick="modalClose()">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			<h4 class="modal-title text-center">Order Number: <?= $orderInfo['id'];?></h4>
+			<h4 class="modal-title text-center">Order Number: <?= $orderInfo['id'];?> || Hello</h4>
 		</div>
 		<div class="modal-body">
 			<div class="container-fluid">
@@ -74,7 +74,6 @@
 		setTimeout(function(){
 			jQuery('#order').remove();
 		},500);
-		location.reload();
 	}
 </script>
 <?php echo ob_get_clean(); ?>
