@@ -23,9 +23,39 @@
 
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 					$errors[] = 'Please provide a valid email address';
-				} elseif ($password != $confirmpassword) {
-					$errors[] = "Your passwords dont seem to match. Please try again.";
+				} 
+				if (strlen($password) >= 6 && strlen($password) < 20) {
+					if (!preg_match('/[A-Z]/', $password)) {
+						$errors[] = 
+						'
+							<ul>
+							  <li>Must Contain an UPPERCASE letter</li>
+							  <li>Must Contain a lowercase letter</li>
+							  <li>Must Contain an number letter</li>
+							</ul>
+						';
+					} elseif (!preg_match('/[a-z]/', $password)) {
+						$errors[] = 
+						'
+							<ul>
+							  <li>Must Contain a lowercase letter</li>
+							  <li>Must Contain an number letter</li>
+							</ul>
+						';
+					} elseif (!preg_match('/[0-9]/', $password)) {
+						$errors[] = 
+						'
+							<ul>
+							  <li>Must Contain an number letter</li>
+							</ul>
+						';
+					}
+				} else {
+					$errors[] = "Password must be greater than 6 characters and less than 20 characters";
 				}
+				if ($password != $confirmpassword) {
+						$errors[] = "Your passwords dont seem to match. Please try again.";
+					}
 
 				$query = "SELECT * FROM users WHERE username = '$username'";
 				$result = $conn->query($query);
@@ -41,12 +71,12 @@
 			if (!empty($errors)) {
 				echo errors($errors);
 			} else {
-				$password_hashed = password_hash($password, PASSWORD_DEFAULT);
-				$date = date('Y-m-d H:i:s');
-				$insert_query = "INSERT INTO users (username, password, name, email, joindate, roles) VALUES ('$username', '$password_hashed', '$fullname', '$email', '$date', 'user')";
-				$conn->query($insert_query);
-				header("Location: login.php");
-			}
+			 	$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+			 	$date = date('Y-m-d H:i:s');
+			 	$insert_query = "INSERT INTO users (username, password, name, email, joindate, roles) VALUES ('$username', '$password_hashed', '$fullname', '$email', '$date', 'user')";
+			 	$conn->query($insert_query);
+			 	header("Location: login.php");
+			 }
 		}
 
 		$token = $_SESSION['token'] = md5(uniqid());

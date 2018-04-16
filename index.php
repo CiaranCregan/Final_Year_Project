@@ -21,17 +21,17 @@
     </section>  
     <div class="container-fluid">
       <?php
-          if (isset($_SESSION['success-message-flash'])) {
+          if (isset($_SESSION['success-message-index'])) {
             echo '
             <div class="col-md-12" id="item-added-successfully">
             <div class="row">
             <div class="alert alert-success alert-dismissible text-center" role="alert">
             <button type="button" class="close" data-dismiss="alert" ria-label="Close"><span aria-hidden= true>&times;</span></button>
-             <strong>Complete!</strong> '.$_SESSION['success-message-flash'].'
+             <strong>Complete!</strong> '.$_SESSION['success-message-index'].'
              </div>
              </div>
              </div>';
-            unset($_SESSION['success-message-flash']);
+            unset($_SESSION['success-message-index']);
           }
           ?>
       <div class="col-md-12">

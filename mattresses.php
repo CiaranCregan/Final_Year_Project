@@ -20,6 +20,20 @@
       <div class="container">
        <div class="col-md-12">
           <h2 class="text-center">Mattresses</h2>
+          <?php
+          if (isset($_SESSION['success-message-index'])) {
+            echo '
+            <div class="col-md-12" id="item-added-successfully">
+            <div class="row">
+            <div class="alert alert-success alert-dismissible text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert" ria-label="Close"><span aria-hidden= true>&times;</span></button>
+             <strong>Product Added to you Cart!</strong> '.$_SESSION['success-message-index'].'
+             </div>
+             </div>
+             </div>';
+            unset($_SESSION['success-message-index']);
+          }
+          ?>
           <?php while ($pro = $result->fetch_assoc()) : ?>
           <div class="col-md-3 col-sm-3 col-xs-12">
             <img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">

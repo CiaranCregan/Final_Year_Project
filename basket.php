@@ -19,7 +19,7 @@
   </div>
   <section id="basket-items">
     <div class="container" style="margin-top: 40px;">
-    <h1 class="text-center">My Shopping Bag</h1>
+    <h1 class="text-center">My Shopping Bag || <?=$cart_items['id'];?></h1>
     <div class="row" style="margin-top: 40px;">
       <div class="col-md-12">
         <div class="table-responsive">
@@ -72,7 +72,10 @@
         <form method="post" action="cart.php">
           <input type="hidden" name="quantity" value="<?= $items_quantity; ?>">
           <input type="hidden" name="total" value="<?= $total; ?>">
-          <input class="btn btn-success btn-lg" type="submit" name="submit" value="Secure Checkout">
+          <?php if (loggedin()) {
+            # code...
+            echo '<input class="btn btn-success btn-lg" type="submit" name="submit" value="Secure Checkout" '.(($items_quantity == 0 && $total == 0)?"disabled":"").'>';
+          } ?>
         <h4>Item Quantity: <?= $items_quantity; ?></h4>
         <h4>Total: £<b><?= $total; ?>.00</b><br>
           <p>(Delivery Excluded)</p>

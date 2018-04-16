@@ -93,6 +93,47 @@ function updateProductViews($id){
 }
 
 // login functions
+function checkPassword($string){
+	if (strlen($string) >= 6 && strlen($string) <= 20) {
+
+		if (!preg_match('/[A-Z]/', $string)) {
+			echo 
+			'
+				<ul>
+				  <li>Must Contain an UPPERCASE letter</li>
+				  <li>Must Contain a lowercase letter</li>
+				  <li>Must Contain an number letter</li>
+				  <li>Must Contain an special character letter</li>
+				</ul>
+			';
+		} elseif (!preg_match('/[a-z]/', $string)) {
+			echo 
+			'
+				<ul>
+				  <li>Must Contain a lowercase letter</li>
+				  <li>Must Contain an number letter</li>
+				  <li>Must Contain an special character letter</li>
+				</ul>
+			';
+		} elseif (!preg_match('/[0-9]/', $string)) {
+			echo 
+			'
+				<ul>
+				  <li>Must Contain an number letter</li>
+				  <li>Must Contain an special character letter</li>
+				</ul>
+			';
+		} 
+	} else {
+		echo 
+			'
+				<ul>
+				  <li>Must be between 6-20 characters || password length = '.strlen($string).'</li>
+				</ul>
+			';
+	}
+}
+
 function login($user_id) {
 	$_SESSION['userid'] = $user_id;
 	// insert global $conn;
@@ -118,6 +159,10 @@ function employee_access($role = ''){
 }
 
 function error_redirect($url = ''){
+	header("Location: " . $url);
+}
+
+function redirect($url = ''){
 	header("Location: " . $url);
 }
 

@@ -17,6 +17,7 @@
 				}
 
 				$user_sql = "SELECT * FROM users WHERE username = '$username'";
+				// var_dump($user_sql);die;
 				$result = $conn->query($user_sql);
 				$user = $result->fetch_assoc();
 				$count = $result->num_rows;

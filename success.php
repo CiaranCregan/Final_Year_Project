@@ -1,4 +1,4 @@
-<?php
+	<?php
 	require_once 'core/init.php';
 
 	// Set your secret key: remember to change this to your live secret key in production

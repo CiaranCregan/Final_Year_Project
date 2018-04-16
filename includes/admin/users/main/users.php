@@ -74,7 +74,14 @@
 										}
 										//var_dump($insert_query);die;
 										$conn->query($insert_query);
-										header("Location: login.php");
+										echo 
+												'	<div class="col-md-12">
+														<div class="alert alert-success alert-dismissible" role="alert">
+														 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+														 	<strong>Success!</strong><a href="users.php"> New User Created</a>.
+														</div>
+													</div> ';
+										//header("Location: login.php");
 									}
 								} 
 

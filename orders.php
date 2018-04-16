@@ -9,6 +9,18 @@ if (!employee_access('employee')) {
 } elseif (employee_access('driver')) {
 	error_redirect('delivery.php');
 }
+	// CODE BLOCK LINKED TO includes/admin/orders/main/vieworders.php
+	$query = "SELECT * FROM payments WHERE status = 0 ORDER BY id DESC";
+	$result = $conn->query($query);
+	$deliveryDate = date('y:m:d', strtotime("+4 days"));
+
+	if (isset($_GET['addDelivery'])) {
+		$id = (int)$_GET['addDelivery'];
+		$conn->query("UPDATE payments SET status = 1, delivery_date = '$deliveryDate' WHERE id = '$id'");
+		redirect('orders.php');
+	}
+	// END OF CODE BLOCK LINKED TO includes/admin/orders/main/vieworders.php
+
 include '/includes/overall/a_header.php'; 
 ?>
 <div id="wrapper">

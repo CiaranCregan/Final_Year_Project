@@ -23,7 +23,8 @@ $added_items[] = array(
 $query = "SELECT * FROM products WHERE id = '$id'";
 $result = $conn->query($query);
 $product = $result->fetch_assoc();
-$_SESSION['success-message-flash'] = $quantity . ' ' . $product['title'] . ' has been added to your basket';
+$_SESSION['success-message-index'] = $quantity . ' ' . $product['title'] . ' has been added to your basket';
+
 
 // if there is a shopping cart id set then update the DB instead of adding in a new record
 if ($shopping_cart_id != '') {

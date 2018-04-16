@@ -18,29 +18,12 @@
 			<!-- Dashboard side menu -->
 			<?php include 'includes/admin/b_nav.php' ;?>
 			<div class="col-sm-12 col-md-9">
-				<div class="col-xs-12 col-sm-4 col-md-4">
+				<div class="col-xs-12 col-sm-4 col-md-8">
 					<div class="well text-center">
 						<h3>Orders</h3>
-						<canvas id="orderChart" height="200"></canvas>
+						<canvas id="orderChart" height="115"></canvas><br>
 						<a href="orders.php" class="btn btn-default">View New Orders</a>
-						<p>(Order Amount: <?=totalAmountOfOrders();?>)</p>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4">
-					<div class=" well text-center">
-						<h3 class="text-center">Payments</h3>
-						<h5><b>Successful Payments</b> <small>(<?=$success;?> / <?=$overall;?>)</small></h5>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-success" style="width: <?=$success_per;?>%">
-						    <?=$success_per;?>%
-						  </div>
-						</div>
-						<h5><b>Failed Payments</b> <small>(<?=$failed;?> / <?=$overall;?>)</small></h5>
-						<div class="progress">
-						  <div class="progress-bar progress-bar-danger" style="width: <?=$failed_per;?>%">
-						    <?=$failed_per;?>% Purchased
-						  </div>
-						</div>
+						<p>(Total Orders: <?=totalAmountOfOrders();?>)</p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
@@ -58,6 +41,23 @@
 						</h3>
 						<a href="users.php" class="btn btn-default">View Revenue</a>
 						<p>(Order Amount: £<?=totalSpendAmount();?>)</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<div class=" well text-center">
+						<h3 class="text-center">Payments</h3>
+						<h5><b>Successful Payments</b> <small>(<?=$success;?> / <?=$overall;?>)</small></h5>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success" style="width: <?=$success_per;?>%">
+						    <?=$success_per;?>%
+						  </div>
+						</div>
+						<h5><b>Failed Payments</b> <small>(<?=$failed;?> / <?=$overall;?>)</small></h5>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-danger" style="width: <?=$failed_per;?>%">
+						    <?=$failed_per;?>% Purchased
+						  </div>
+						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12">

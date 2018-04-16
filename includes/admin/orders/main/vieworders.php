@@ -1,19 +1,4 @@
-<?php 
-	$query = "SELECT * FROM payments WHERE status = 0 ORDER BY id DESC";
-	$result = $conn->query($query);
-	$deliveryDate = date('y:m:d', strtotime("+4 days"));
 
-	if (isset($_GET['addDelivery'])) {
-		$id = (int)$_GET['addDelivery'];
-
-		$conn->query("UPDATE payments SET status = 1, delivery_date = '$deliveryDate' WHERE id = '$id'");
-
-		header("Location: orders.php");
-
-	}
-?>
-
-	
 		<div class="col-md-9">
 			<div class="panel panel-default">
 				<div class="panel-heading">New Orders</div>

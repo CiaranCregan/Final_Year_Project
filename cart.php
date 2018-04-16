@@ -1,9 +1,21 @@
 <?php 
    require_once 'core/init.php';
+   if (!loggedin()) {
+		error_redirect('basket.php');
+	}
    include 'includes/overall/m_header.php';
 
+  if (postInputExists()) {
    $item_quantity = $_POST['quantity'];
    $total = $_POST['total'];
+
+   $validation = array('quantity', 'total');
+				foreach ($validation as $validate) {
+					if ($_POST[$validate] == 0) {
+						header("Location: basket.php");
+					}
+				}
+  }
 ?>
 <div class="container" style="margin-top: 40px;">
     <h1 class="text-center">Checkout</h1>
