@@ -44,6 +44,13 @@
 
 							$success = $conn->query($brandInsert);
 							// header("Location: brands.php");
+							echo 
+								'	<div class="col-md-6">
+										<div class="alert alert-success alert-dismissible" role="alert">
+										 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										 	<strong>Success!</strong><a href="brands.php">'.$brand_name.' has been added</a>.
+										</div>
+									</div> ';
 						}
 					}
 				}

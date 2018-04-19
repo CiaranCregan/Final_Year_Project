@@ -9,10 +9,14 @@
     <script type="text/javascript">
 
 
-		$("#menu-toggle").click( function(e){
-			e.preventDefault();
-			$("#wrapper").toggleClass("menuDisplayed");
-		});
+		          ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                    console.log( editor );
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
 
 
 var ctxOrder = document.getElementById("orderChart").getContext('2d');

@@ -5,6 +5,10 @@
 				$query = $conn->query($sql);
 				$row = $query->fetch_assoc();
 
+				// grabs all products from within the products table
+				$sql3 = "SELECT * FROM products WHERE archived = 0 ORDER BY type DESC";
+				$query3 = $conn->query($sql3);
+
 				if (isset($_GET['addproduct']) || isset($_GET['editproduct'])) { 
 					$sql1 = "SELECT * FROM brands WHERE archived = 0 ORDER BY brand_name";
 					$query = $conn->query($sql1);
@@ -49,6 +53,30 @@
 									break;
 								}
 							}
+
+							if (!is_numeric($price)) {
+								$producterrors[] .= 'Please provide the correct total format for the products price.';	
+							}
+
+							if (!is_numeric($stock)) {
+								$producterrors[] .= 'Please provide the correct total format for the products stock level.';	
+							}
+							if ($type == 'Mattress' && $storage == 1) {
+								$producterrors[] .= 'Products with the type of '.$type.' cant have storage. Please add the product accordingly';
+							}	
+
+							// $productNameQuery = "SELECT * FROM products where title = '$title' AND size = '$size'";
+
+							// 	if (isset($_GET['editproduct'])) {
+							// 		$productNameQuery = "SELECT * FROM products where title = '$title' AND size = '$size' AND id != '$editId'";	
+							// 	}
+
+							// $productResult = $conn->query($productNameQuery);
+							// $productNameAndSizeCount = $result->num_rows;
+
+							// if ($productNameAndSizeCount > 0 ) {
+							// 	$producterrors[] = '<b>' .$title . '</b> with the size of <b>' . $size . '</b> already exists.';
+							// }
 						}
 
 						// if errors not empty then it will display the in div 9 column with appriopiate error message
@@ -56,24 +84,26 @@
 							echo product_errors($producterrors);
 						} else {
 							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', 'employee,$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
-							var_dump($sql2);die;
+							var_dump($sql2);
 
 							// when get has been set this update query will run instead of the query above
 							// the above query is for adding a product
-							if (isset($_GET['editproduct'])) {
-								$sql2 = "UPDATE products SET title = '$title', our_price = '$price', brand = '$brand', type = '$type', size = '$size', stock = '$stock', description = '$editor1', storage = '$storage' WHERE id = '$editId'";
-							}
-							// var_dump($sql2);die();
-							$query2 = $conn->query($sql2);
-							echo 
-							'	
-								<div class="col-md-9">
-									<div class="alert alert-success alert-dismissible" role="alert">
-									 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									 	<strong>Success!</strong><a href="products.php"> View</a>.
-									</div>
-								</div> 
-							';
+							// if (isset($_GET['editproduct'])) {
+							// 	$sql2 = "UPDATE products SET title = '$title', our_price = '$price', brand = '$brand', type = '$type', size = '$size', stock = '$stock', description = '$editor1', storage = '$storage' WHERE id = '$editId'";
+							// }
+
+							// // var_dump($sql2);die;
+							// // var_dump($sql2);die();
+							// $query2 = $conn->query($sql2);
+							// echo 
+							// '	
+							// 	<div class="col-md-9">
+							// 		<div class="alert alert-success alert-dismissible" role="alert">
+							// 		 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							// 		 	<strong>Success!</strong><a href="products.php"> View</a>.
+							// 		</div>
+							// 	</div> 
+							// ';
 						}
 					}
 
@@ -144,7 +174,8 @@
 								  </div> -->
 								  <div class="form-group col-md-12">
 									  <label for="editor1">Product Description*:</label>
-									  <textarea id="editor1" name="editor1" class="form-control" rows="8"><?=$editor1;?></textarea>
+									  <textarea id="editor" name="editor1" class="form-control"><?=$editor1;?></textarea>
+									  <!-- <textarea name="content" id="editor">This is some sample content.</textarea> -->
 								  </div>
 								  <div class="form-group col-md-12">
 									  <a href="products.php" class="btn btn-danger col-md-2">Cancel</a>
@@ -155,16 +186,7 @@
 							</div>
 						</div>
 					</div>
-					<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
-					<script type="text/javascript">
-						CKEDITOR.replace("editor1");
-					</script>
 				<?php } else {
-
-				// grabs all products from within the products table
-				$sql3 = "SELECT * FROM products WHERE archived = 0 ORDER BY type DESC";
-				$query3 = $conn->query($sql3);
-
 				// products per page = 10
 				$products_per_page = 8;
 

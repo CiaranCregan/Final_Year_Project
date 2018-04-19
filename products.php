@@ -24,6 +24,4 @@ include '/includes/overall/a_header.php';
 		include 'includes/admin/products/main.php';
 		include 'includes/overall/a_footer.php';
 		?>
-	</div>
-
-</div>
+	
