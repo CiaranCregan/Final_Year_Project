@@ -37,7 +37,7 @@
 					<span id="errors" class="bg-danger"></span>
 					<div class="col-md-6">
 						<div class="center-block">
-							<img src="<?= $products_info['image']; ?>" align="<?= $products_info['title']; ?>" style="width:700px;" class="img-responsive">
+							<img src="<?= $products_info['image']; ?>" alt="<?= $products_info['title']; ?>" style="width:700px;" class="img-responsive">
 						</div>
 					</div>
 					<div class="col-md-6">

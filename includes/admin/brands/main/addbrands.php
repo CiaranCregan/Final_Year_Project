@@ -30,7 +30,6 @@
 							if ($brandNameCount > 0) {
 								$branderrros[] = $brand_name . ' already exsists, please provide a different brand name';
 							}
-
 						// if brand errors exist displa them here
 						if (!empty($branderrros)) {
 							echo brand_errors($branderrros);

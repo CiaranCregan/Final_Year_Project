@@ -55,7 +55,7 @@
 						<h5><b>Failed Payments</b> <small>(<?=$failed;?> / <?=$overall;?>)</small></h5>
 						<div class="progress">
 						  <div class="progress-bar progress-bar-danger" style="width: <?=$failed_per;?>%">
-						    <?=$failed_per;?>% Purchased
+						    <?=$failed_per;?>%
 						  </div>
 						</div>
 					</div>

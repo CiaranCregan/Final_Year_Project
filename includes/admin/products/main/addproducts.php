@@ -44,7 +44,6 @@
 					if (postInputExists()) {
 						if (isset($_SESSION['token']) && $_POST['token'] == $_SESSION['token']) {
 							$producterrors = ''; // setting up an empty array to store errors in for when they occur
-
 							// foreach loop that will run through all the posted variable to check for errors
 							$required = array('title','price','brand','editor1','storage', 'stock', 'type', 'size');
 							foreach ($required as $require) {
@@ -52,6 +51,19 @@
 									$producterrors[] .= 'All fields marked with * must been filled.';
 									break;
 								}
+							}
+
+							$productNameQuery = "SELECT * FROM products WHERE title = '$title' AND size = '$size' AND storage = '$storage'";
+
+							if (isset($_GET['editproduct'])) {
+								$productNameQuery = "SELECT * FROM products WHERE title = '$title' AND size = '$size' AND storage = '$storage' AND id != '$editId'";
+							}
+
+							$productResult = $conn->query($productNameQuery);
+							$productNameAndSizeCount = $productResult->num_rows;
+
+							if ($productNameAndSizeCount > 0 ) {
+								$producterrors[] = '<b>' .$title . '</b> with the size of <b>' . $size . '</b> already exists.';
 							}
 
 							if (!is_numeric($price)) {
@@ -64,46 +76,50 @@
 							if ($type == 'Mattress' && $storage == 1) {
 								$producterrors[] .= 'Products with the type of '.$type.' cant have storage. Please add the product accordingly';
 							}	
+							if (!empty($_FILES)) {
+								$file = $_FILES['file'];
 
-							// $productNameQuery = "SELECT * FROM products where title = '$title' AND size = '$size'";
+								$filename = $file['name'];
+								$file_tmp_address = $file['tmp_name'];
+								$file_size = $file['size'];
 
-							// 	if (isset($_GET['editproduct'])) {
-							// 		$productNameQuery = "SELECT * FROM products where title = '$title' AND size = '$size' AND id != '$editId'";	
-							// 	}
+								$file_extension = explode('.', $filename);
+								$file_extension = strtolower(end($file_extension));
 
-							// $productResult = $conn->query($productNameQuery);
-							// $productNameAndSizeCount = $result->num_rows;
+								$file_extensions_allowed = array('jpg', 'png', 'jpeg');
 
-							// if ($productNameAndSizeCount > 0 ) {
-							// 	$producterrors[] = '<b>' .$title . '</b> with the size of <b>' . $size . '</b> already exists.';
-							// }
+								if (!in_array($file_extension, $file_extensions_allowed)) {
+									$producterrors[] .= 'Please upload an image';
+								}
+
+								$file_new_name = $title . '.' . $file_extension;
+								$file_folder = 'img/' . $file_new_name;
+							}
 						}
 
 						// if errors not empty then it will display the in div 9 column with appriopiate error message
 						if (!empty($producterrors)) {
 							echo product_errors($producterrors);
 						} else {
-							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, description, storage) VALUES ('$title', '$price', 'employee,$brand', '$type', '$size', '$stock', '$editor1', '$storage')";
-							var_dump($sql2);
+							$sql2 = "INSERT INTO products (title, our_price, brand, type, size, stock, image, description, storage) VALUES ('$title', '$price', '$brand', '$type', '$size', '$stock', '$file_folder','$editor1', '$storage')";
 
 							// when get has been set this update query will run instead of the query above
 							// the above query is for adding a product
-							// if (isset($_GET['editproduct'])) {
-							// 	$sql2 = "UPDATE products SET title = '$title', our_price = '$price', brand = '$brand', type = '$type', size = '$size', stock = '$stock', description = '$editor1', storage = '$storage' WHERE id = '$editId'";
-							// }
+							if (isset($_GET['editproduct'])) {
+								$sql2 = "UPDATE products SET title = '$title', our_price = '$price', brand = '$brand', type = '$type', size = '$size', stock = '$stock', description = '$editor1', storage = '$storage' WHERE id = '$editId'";
+							}
 
-							// // var_dump($sql2);die;
-							// // var_dump($sql2);die();
-							// $query2 = $conn->query($sql2);
-							// echo 
-							// '	
-							// 	<div class="col-md-9">
-							// 		<div class="alert alert-success alert-dismissible" role="alert">
-							// 		 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							// 		 	<strong>Success!</strong><a href="products.php"> View</a>.
-							// 		</div>
-							// 	</div> 
-							// ';
+							move_uploaded_file($file_tmp_address, $file_folder);
+							$query2 = $conn->query($sql2);
+							echo 
+							'	
+								<div class="col-md-9">
+									<div class="alert alert-success alert-dismissible" role="alert">
+									 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									 	<strong>Success!</strong><a href="products.php"> View</a>.
+									</div>
+								</div> 
+							';
 						}
 					}
 
@@ -168,10 +184,10 @@
 									  	<option value="King Size">King Size</option>
 									  </select>
 								  </div>
-								  <!-- <div class="form-group col-md-8">
-									  <label for="image">Product Image:</label>
-									  <input class="form-control" type="file" name="image" id="image">
-								  </div> -->
+								  <div class="form-group col-md-8">
+									  <label for="file">Product Image:</label>
+									  <input type="file" name="file" id="file">
+								  </div>
 								  <div class="form-group col-md-12">
 									  <label for="editor1">Product Description*:</label>
 									  <textarea id="editor" name="editor1" class="form-control"><?=$editor1;?></textarea>

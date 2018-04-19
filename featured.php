@@ -6,7 +6,7 @@
 	while ($pro = $result->fetch_assoc()) : ?>
 		<section id="best-sellers">
 			<div class="col-md-3 col-sm-3 col-xs-12">
-						<img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">
+						<img src="<?= $pro['image'];?>" alt="<?= $pro['title'];?>" class="img-thumb">
 						<h4 class="text-center"><?= $pro['title']; ?></h4>
 						<h4 class="text-center"><b><?=(($pro['storage'] == 0)?'without Drawers':'with Drawers');?></b></h4>
 						<h4 class="text-center"><?= $pro['size']; ?> Bed</h4>

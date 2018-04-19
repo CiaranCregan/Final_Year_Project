@@ -189,3 +189,12 @@ body{
 #user-accounts .panel-heading h3{
 	color: #fff;
 }
+
+/* FOOTER */
+.social {
+	padding: 20px;
+}
+
+.social img{
+	width:50px;
+}
