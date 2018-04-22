@@ -23,11 +23,11 @@ require_once 'core/init.php';
           <!--li><a href="#"></a></li-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left" action="search.php" method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search Product" name="search" value="<?=((isset($_POST['search']))?$_POST['search']:'');?>">
+            <input type="submit" value="Search Products" class="btn btn-success">
           </div>
-          <button type="submit" class="btn btn-info">Submit</button>
         </form>
           <li><a href="basket.php"><span class="glyphicon glyphicon-shopping-cart"></span> Basket <?= (($shopping_cart_num_items > 0)?'<span class="badge">'.$shopping_cart_num_items.'</span>':'') ?></a></li>
           <?php

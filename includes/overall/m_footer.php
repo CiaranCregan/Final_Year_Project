@@ -9,8 +9,6 @@
           <img src="img/facebook.png">
           <img src="img/twitter.png">
           <img src="img/instagram.png">
-          <img src="img/facebook.png">
-          <img src="img/facebook.png">
       </div>
     </div>  
   </section>

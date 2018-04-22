@@ -53,12 +53,12 @@
 											$errors[] = "Your passwords dont seem to match. Please try again.";
 										}
 
-										$query = "SELECT * FROM users WHERE email = '$email'";
+										$query = "SELECT * FROM users WHERE username = '$username'";
 										$result = $conn->query($query);
 										$count = $result->num_rows;
 
 										if ($count > 0) {
-											$errors[] = "That email address (".$email.") already exists, please try again";
+											$errors[] = "That username (".$username.") already exists, please try again";
 										}
 									}
 
