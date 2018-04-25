@@ -21,27 +21,27 @@
 					<div class="table-responsive">
 						<table class="table table-hover">
 						  <th>Order Date</th>
-						  <th>Email</th>
-						  <th>Address</th>
-						  <th>Description</th>
-						  <th>Total (£)</th>
-						  <th>Status</th>
-						  <th>Delivery Date <br> <small class="text-center">(3-5 Working Days)</small></th>
+						  <th id="display-desktop">Email</th>
+						  <th id="display-desktop">Address</th>
+						  <th id="display-desktop">Description</th>
+						  <th id="display-desktop">Total (£)</th>
+						  <th id="display-desktop">Status</th>
+						  <th id="display-desktop">Delivery Date <br> <small class="text-center">(3-5 Working Days)</small></th>
 						  <th></th>
 						  <?php while ($order = $result->fetch_assoc()) : ?>
 						  <tr>
 						  	<td><?= $order['payment_date']; ?></td>
-						  	<td><?= $order['email']; ?></td>
-						  	<td>
+						  	<td id="display-desktop"><?= $order['email']; ?></td>
+						  	<td id="display-desktop">
 						  		<address>
 									<?= $order['address'] ;?><br> 
 									<?= $order['postcode'] ;?><br>
 									<?= $order['county'] ;?><br>
 								</address>
 							</td>
-						  	<td><?= $order['description']; ?></td>
-						  	<td>£<?= $order['total']; ?></td>
-						  	<td>
+						  	<td id="display-desktop"><?= $order['description']; ?></td>
+						  	<td id="display-desktop">£<?= $order['total']; ?></td>
+						  	<td id="display-desktop">
 						  	<?php if ($order['status'] == 0) {
 						  		echo "Processing";
 						  	} elseif ($order['status'] == 1){
@@ -50,7 +50,7 @@
 						  		echo "Delivered";
 						  	}?>
 						  	</td>
-						  	<td>
+						  	<td id="display-desktop">
 						  	<?php if ($order['delivered'] == 1) {
 						  		echo $order['delivery_date'];
 						  	} elseif ($order['status'] == 1) {

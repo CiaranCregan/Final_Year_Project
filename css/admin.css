@@ -17,6 +17,7 @@ h1{
   display: none;
 }
 /* Navbar CSS */
+
 .navbar{
 	min-height: 50px !important;
 	margin-bottom: 40px;
@@ -100,6 +101,14 @@ h1{
 #sidebar .list-group-item{
   background: #6799a3;
   color: #fff;
+}
+@media screen and (min-width: 375px) and (max-width: 993px) and (orientation: portrait){
+  #sidebar .list-group-item{
+    display: none;
+  }
+  #main .list-group-item{
+    display: none;
+  }
 }
 #sidebar .well{
   background: #fff;

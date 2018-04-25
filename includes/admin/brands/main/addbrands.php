@@ -81,7 +81,7 @@
 
 				$token = $_SESSION['token'] = md5(uniqid());
 			?>
-				<div class="col-md-6">
+				<div class="col-md-6 col-sm-6 col-xs-12">
 					<div class="panel panel-default">
 						<div id="m-color" class="panel-heading">
 						   <h3 class="panel-title"><?=((isset($_GET['edit']))?'Edit ':'Add '); ?>Brand</h3>

@@ -22,9 +22,6 @@ if (isset($_COOKIE[SHOPPING_CART_COOKIE])) {
 	$items = json_decode($cart_items['items']);
 	$shopping_cart_num_items = count($items);
 }
-/*
-Modify at a later stage in the shopping cart development
-*/ 
 
 if (isset($_SESSION['userid'])) {
 	$user_id = $_SESSION['userid'];
@@ -33,4 +30,3 @@ if (isset($_SESSION['userid'])) {
 	$user = $result->fetch_assoc();
 	$name = $user['name'];
 }
-//flashes go in here - add jquery to flash so it auto removes

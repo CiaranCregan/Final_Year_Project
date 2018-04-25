@@ -35,7 +35,7 @@
           }
           ?>
           <?php while ($pro = $result->fetch_assoc()) : ?>
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12" style="padding-bottom: 10px;height: 100%;">
             <img src=<?= $pro['image']; ?> alt=<?= $pro['title']; ?> class="img-thumb">
             <h4 class="text-center"><?= $pro['title']; ?></h4>
             <h4 class="text-center"><?= $pro['size']; ?> Mattress</h4>

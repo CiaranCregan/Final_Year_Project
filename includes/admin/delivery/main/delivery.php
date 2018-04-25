@@ -43,24 +43,3 @@
 				</div>
 			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			function orderdetails(id){ // id = id of product
-    		// alert("Cart ID: " + id)
-    		var orderData = {"id" : id};
-    		$.ajax({
-    			url 	: 'includes/orderdetails.php',
-    			method 	: "post",
-    			data 	: orderData,
-    			success	: function(orderData){
-    				jQuery("body").append(orderData);
-    				jQuery("#order").modal('toggle');
-    			},
-    			error	: function(){
-    				alert("Problem occurred");
-    			}
-    		});
-    	}
-		</script>

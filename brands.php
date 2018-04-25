@@ -16,5 +16,5 @@ include 'includes/overall/a_header.php';
 		// include 'includes/admin/b_nav.php';
 		// include 'includes/admin/breadcrumb.php';
 		include 'includes/admin/brands/main.php';
-		// include 'includes/overall/a_footer.php';
+		include 'includes/overall/a_footer.php';
 		?>

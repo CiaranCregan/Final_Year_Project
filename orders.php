@@ -28,6 +28,7 @@ include '/includes/overall/a_header.php';
 	<div id="main-wrapper">
 		<?php 
 		include 'includes/admin/orders/main.php';
+		include 'includes/overall/a_footer.php'
 		?>
 	</div>
 </div>

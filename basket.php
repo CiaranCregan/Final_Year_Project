@@ -35,16 +35,31 @@
               $product_info = $result->fetch_assoc();
             ?>
             <tr>
-              <td><img class="" src="<?= $product_info['image'] ;?>" width="100%" height="120px"></td>
               <td>
+                <img class="" src="<?= $product_info['image'] ;?>" width="100%" height="150px">
+                <div id="display-phone" class="text-center">
+                  <?= $product_info['title'];?>
+                  <p class="text-success">Price: £<?= $product_info['our_price'];?>.00</p>
+                  <p>Size: <br><?= $product_info['size'] ;?></p>
+                  <button class="btn btn-danger" onclick="cart_update('minus','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">-</button>
+                <a href="#" class="btn btn-default" disabled><?= $an_item['quantity'];?></a>
+                <?php if ($an_item['quantity'] < $product_info['stock']) : ?>
+                <button class="btn btn-success" onclick="cart_update('add','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">+</button>
+                <?php endif; ?>
+                <p>Storage: <br><?= (($an_item['side'] == '')?'None':$an_item['side']);?></p>
+                <p>Base Colour: <?= $an_item['color'];?></p>
+                <hr>
+                </div>
+              </td>
+              <td id="display-desktop">
                 <h4>
                   <?= $product_info['title'];?>
                 </h4>
                 <p class="list-price text-danger">Was: £<?= $product_info['price'];?>.00</p>
                 <p class="text-success">Now: £<?= $product_info['our_price'];?>.00</p>
               </td>
-              <td><h4>Size: <br><?= $product_info['size'] ;?></h4></td>
-              <td class="text-center" style="width:200px;">
+              <td id="display-desktop"><h4>Size: <br><?= $product_info['size'] ;?></h4></td>
+              <td id="display-desktop" class="text-center" style="width:200px;">
                 <h4>Quantity:</h4><br>
                 <button class="btn btn-danger" onclick="cart_update('minus','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">-</button>
                 <a href="#" class="btn btn-default" disabled><?= $an_item['quantity'];?></a>
@@ -52,9 +67,9 @@
                 <button class="btn btn-success" onclick="cart_update('add','<?= $product_info['id'];?>','<?= $an_item['side'];?>','<?= $an_item['color'];?>');">+</button>
                 <?php endif; ?>
               </td>
-              <td><h4>Price: <br>£<?= $product_info['our_price'];?>.00</h4></td>
-              <td><h4>Storage: <br><?= (($an_item['side'] == '')?'None':$an_item['side']);?></h4></td>
-              <td><h4>Base Colour: <?= $an_item['color'];?></h4></td>
+              <td id="display-desktop"><h4>Price: <br>£<?= $product_info['our_price'];?>.00</h4></td>
+              <td id="display-desktop"><h4>Storage: <br><?= (($an_item['side'] == '')?'None':$an_item['side']);?></h4></td>
+              <td id="display-desktop"><h4>Base Colour: <?= $an_item['color'];?></h4></td>
             </tr>
             <?php 
               $items_quantity += $an_item['quantity'];
