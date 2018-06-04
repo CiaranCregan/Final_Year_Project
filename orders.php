@@ -12,11 +12,13 @@ if (!employee_access('employee')) {
 	// CODE BLOCK LINKED TO includes/admin/orders/main/vieworders.php
 	$query = "SELECT * FROM payments WHERE status = 0 ORDER BY id DESC";
 	$result = $conn->query($query);
+	$demoDate = "2018-05-28";
 	$deliveryDate = date('y:m:d', strtotime("+4 days"));
+	// echo $demoDate;
 
 	if (isset($_GET['addDelivery'])) {
 		$id = (int)$_GET['addDelivery'];
-		$conn->query("UPDATE payments SET status = 1, delivery_date = '$deliveryDate' WHERE id = '$id'");
+		$conn->query("UPDATE payments SET status = 1, delivery_date = '$demoDate' WHERE id = '$id'");
 		redirect('orders.php');
 	}
 	// END OF CODE BLOCK LINKED TO includes/admin/orders/main/vieworders.php

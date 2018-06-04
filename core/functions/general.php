@@ -168,6 +168,7 @@ function redirect($url = ''){
 
 // ANALYTICS
 
+// canvas numbers
 function newOrders(){
 	global $conn;
 	$sql = "SELECT COUNT(*) AS count FROM payments WHERE status = 0";
@@ -200,6 +201,7 @@ function totalAmountOfOrders(){
 	return $row['count'];
 }
 
+// spend amounts 
 function totalSpendAmount(){
 	global $conn;
 	$date = date('Y-m-d');

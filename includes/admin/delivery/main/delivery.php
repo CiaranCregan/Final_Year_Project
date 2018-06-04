@@ -3,6 +3,10 @@
 	$query = "SELECT * FROM payments WHERE status = 1 AND delivery_date = '$Today'";
 	$result = $conn->query($query);
 	$deliveryDate = date('y:m:d', strtotime("+3 days"));
+	$queryCount = "SELECT COUNT(*) As Count FROM payments WHERE status = 1 AND delivery_date = '$Today'";
+	$countResult = $conn->query($queryCount);
+	$count = $countResult->fetch_assoc();
+
 
 	if (isset($_GET['complete'])) {
 		$id = (int)$_GET['complete'];
@@ -22,6 +26,13 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table table-hover">
+						<?php 
+						  	if ($count['Count'] == 0) {
+						  		echo 
+						  		'
+						  			<h3 class="text-center">No deliveries scheduled for today</h3>
+						  		';
+						  	} else { ?>
 						  <th>Address</th>
 						  <th>Description</th>
 						  <th></th>
@@ -38,6 +49,7 @@
 						  	<td><button type="button" class="btn btn-default" onclick="orderdetails(<?= $order['cart_id']; ?>)">View Products</button><br><br><a href="delivery.php?complete=<?=$order['id'];?>" class="btn btn-default btn-success">Confirm Delivery</a></td>
 						  </tr>
 						  <?php endwhile; ?>
+						  <?php } ?>
 						</table>
 					</div>
 				</div>

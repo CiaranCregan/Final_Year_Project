@@ -1,14 +1,21 @@
  
-<section id="footer" style="background: #f8f8f8;">
+<section id="footer" style="background: #f1f1f1;">
     <div class="container text-center">
-      <div class="col-md-4">Hello</div>
-      <div class="col-md-4">Hello</div>
-      <div class="col-md-4">Hello</div>
-      <div class="col-md-12 social">
-      © 2018 Mattress Man Ltd. All Rights Reserved. <br>
-          <img src="img/facebook.png">
+      <div class="col-md-4">
+      	<h2>Products</h2>
+      	Headboards
+      	Beds
+      	Mattresses
+      </div>
+      <div class="col-md-4"><h2>Information</h2></div>
+      <div class="col-md-4 social">
+      	<h2>Social Media</h2>
+      	<img src="img/facebook.png">
           <img src="img/twitter.png">
           <img src="img/instagram.png">
+      </div>
+      <div id="copyright" class="col-md-12">
+      © 2018 Mattress Man Ltd. All Rights Reserved. <br>
       </div>
     </div>  
   </section>

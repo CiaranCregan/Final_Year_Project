@@ -1,6 +1,12 @@
 	<?php
 	require_once 'core/init.php';
 
+	// if (postInputExists()) {
+		
+	// } else {
+	// 	echo "oops";
+	// }
+
 	// Set your secret key: remember to change this to your live secret key in production
 	// See your keys here: https://dashboard.stripe.com/account/apikeys
 	\Stripe\Stripe::setApiKey(SECRET_KEY);
@@ -69,8 +75,10 @@
  		$query2 = "INSERT INTO payments (user_id, payment_id, cart_id, user_name, email, address, county, postcode, total, description, payment_date) VALUES ('$user_id','$charge->id', '$shopping_cart_id', '$name', '$email', '$address', '$county', '$postcode', '$before_total', '$item_quantity', '$date')";
  		$conn->query($query2);
  		setcookie(SHOPPING_CART_COOKIE,'',1,'/',false);
- 		header("Location: index.php");
+ 		//header("Location: index.php");
 	} catch (Exception $e) {
 		echo $e; // Develop further and make it nicer than just simply outputting $e;
 	}
 ?>
+
+<h2>Thank you for your order, it has been successful. Please check your "Order History" page within your profile account to track your orders status.</h2>
